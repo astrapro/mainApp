@@ -11,8 +11,7 @@ using AstraInterface.DataStructure;
 
 namespace AstraAccess.DynamicAnalysis
 {
-
-    public partial class frmResponseSpectrumAnalysis : Form
+    public partial class frmDynamicAnalysis : Form
     {
         IApplication iApp;
 
@@ -30,7 +29,7 @@ namespace AstraAccess.DynamicAnalysis
             }
         }
 
-        public frmResponseSpectrumAnalysis(IApplication app, eASTRADesignType projType)
+        public frmDynamicAnalysis(IApplication app, eASTRADesignType projType)
         {
             InitializeComponent();
             iApp = app;
@@ -64,6 +63,7 @@ namespace AstraAccess.DynamicAnalysis
             }
             else  if (btn == btn_create_input_data)
             {
+                Analysis_Data_Modified(Input_File);
                 Create_Input_Data();
 
             }
@@ -85,7 +85,7 @@ namespace AstraAccess.DynamicAnalysis
             //= Bridge_Analysis.TotalAnalysis_Input_File;
             if (!File.Exists(file_name)) return;
 
-            List<string> inp_file_cont = new List<string>(File.ReadAllLines(file_name));
+            List<string> inp_file_cont = new List<string>(rtb_input_data.Lines);
             string kStr = "";
             int indx = -1;
             bool flag = false;
@@ -107,13 +107,13 @@ namespace AstraAccess.DynamicAnalysis
                     isMoving_load = true;
                 }
 
-                if (mlist.StringList[0].StartsWith("LOAD") && flag == false)
-                {
-                    //if (indx == -1)
-                    //    indx = i;
-                    //flag = true;
-                }
-                if (kStr.Contains("ANALYSIS") || kStr.Contains("PRINT") || kStr.Contains("FINISH"))
+                //if (mlist.StringList[0].StartsWith("LOAD") && flag == false)
+                //{
+                //    //if (indx == -1)
+                //    //    indx = i;
+                //    //flag = true;
+                //}
+                if (kStr.StartsWith("ANALYSIS") || kStr.StartsWith("PRINT") || kStr.StartsWith("FINISH"))
                 {
                     if (!isMoving_load)
                     {
@@ -139,7 +139,7 @@ namespace AstraAccess.DynamicAnalysis
                 load_lst.Add(string.Format("FREQUENCIES 3"));
                 //load_lst
             }
-            else if (ProjectType == eASTRADesignType.Time_History_Analysis)
+            else if (ProjectType == eASTRADesignType.Response_Spectrum_Analysis)
             {
                 //load_lst.Add(string.Format(""));
                 load_lst.Add(string.Format("PERFORM RESPONSE SPECTRUM ANALYSIS"));
@@ -170,7 +170,7 @@ namespace AstraAccess.DynamicAnalysis
                 load_lst.Add(string.Format("      3.00    21.620"));
                 //load_lst.Add(string.Format(""));
             }
-            else if (ProjectType == eASTRADesignType.Response_Spectrum_Analysis)
+            else if (ProjectType == eASTRADesignType.Time_History_Analysis)
             {
                 
                 //load_lst.Add(string.Format(""));
@@ -190,6 +190,9 @@ namespace AstraAccess.DynamicAnalysis
 
             if (indx != -1)
             {
+
+
+
                 inp_file_cont.InsertRange(indx, load_lst);
 
 
@@ -323,7 +326,6 @@ namespace AstraAccess.DynamicAnalysis
         {
 
             Input_File = Path.Combine(user_path, txt_input_data.Text);
-            Analysis_Data_Modified(Input_File);
             File.WriteAllLines(Input_File, rtb_input_data.Lines);
 
             MessageBox.Show("Analysis Input Data File created as " + Input_File, "ASTRA", MessageBoxButtons.OK);
@@ -337,7 +339,7 @@ namespace AstraAccess.DynamicAnalysis
             if (File.Exists(rep)) System.Diagnostics.Process.Start(rep);
         }
 
-        private void frmResponseSpectrumAnalysis_Load(object sender, EventArgs e)
+        private void frmDynamicAnalysis_Load(object sender, EventArgs e)
         {
             splitContainer1.SplitterDistance = 450;
         }
