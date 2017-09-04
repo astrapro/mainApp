@@ -46,6 +46,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.rtb_analysis_results = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel30.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -53,6 +54,7 @@
             this.splitContainer1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -128,10 +130,11 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.panel4);
             this.splitContainer1.Panel2.Controls.Add(this.rtb_analysis_results);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
             this.splitContainer1.Size = new System.Drawing.Size(885, 409);
-            this.splitContainer1.SplitterDistance = 448;
+            this.splitContainer1.SplitterDistance = 467;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 1;
             // 
@@ -142,27 +145,26 @@
             this.rtb_input_data.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtb_input_data.Location = new System.Drawing.Point(0, 63);
             this.rtb_input_data.Name = "rtb_input_data";
-            this.rtb_input_data.Size = new System.Drawing.Size(446, 281);
+            this.rtb_input_data.Size = new System.Drawing.Size(465, 309);
             this.rtb_input_data.TabIndex = 2;
             this.rtb_input_data.Text = "";
             this.rtb_input_data.WordWrap = false;
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.btn_open_analysis_report);
             this.panel3.Controls.Add(this.btn_create_input_data);
             this.panel3.Controls.Add(this.btn_process_analysis);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 344);
+            this.panel3.Location = new System.Drawing.Point(0, 372);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(446, 63);
+            this.panel3.Size = new System.Drawing.Size(465, 35);
             this.panel3.TabIndex = 1;
             // 
             // btn_open_analysis_report
             // 
-            this.btn_open_analysis_report.Location = new System.Drawing.Point(299, 17);
+            this.btn_open_analysis_report.Location = new System.Drawing.Point(134, 5);
             this.btn_open_analysis_report.Name = "btn_open_analysis_report";
-            this.btn_open_analysis_report.Size = new System.Drawing.Size(142, 35);
+            this.btn_open_analysis_report.Size = new System.Drawing.Size(142, 24);
             this.btn_open_analysis_report.TabIndex = 191;
             this.btn_open_analysis_report.Text = "Open Analysis Report";
             this.btn_open_analysis_report.UseVisualStyleBackColor = true;
@@ -170,9 +172,9 @@
             // 
             // btn_create_input_data
             // 
-            this.btn_create_input_data.Location = new System.Drawing.Point(3, 17);
+            this.btn_create_input_data.Location = new System.Drawing.Point(55, 6);
             this.btn_create_input_data.Name = "btn_create_input_data";
-            this.btn_create_input_data.Size = new System.Drawing.Size(142, 35);
+            this.btn_create_input_data.Size = new System.Drawing.Size(142, 24);
             this.btn_create_input_data.TabIndex = 191;
             this.btn_create_input_data.Text = "Create Input Data";
             this.btn_create_input_data.UseVisualStyleBackColor = true;
@@ -180,9 +182,9 @@
             // 
             // btn_process_analysis
             // 
-            this.btn_process_analysis.Location = new System.Drawing.Point(151, 17);
+            this.btn_process_analysis.Location = new System.Drawing.Point(235, 6);
             this.btn_process_analysis.Name = "btn_process_analysis";
-            this.btn_process_analysis.Size = new System.Drawing.Size(142, 35);
+            this.btn_process_analysis.Size = new System.Drawing.Size(142, 24);
             this.btn_process_analysis.TabIndex = 191;
             this.btn_process_analysis.Text = "Process Analysis";
             this.btn_process_analysis.UseVisualStyleBackColor = true;
@@ -196,7 +198,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(446, 63);
+            this.panel2.Size = new System.Drawing.Size(465, 63);
             this.panel2.TabIndex = 0;
             // 
             // btn_input_browse
@@ -232,7 +234,7 @@
             this.rtb_analysis_results.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtb_analysis_results.Location = new System.Drawing.Point(0, 21);
             this.rtb_analysis_results.Name = "rtb_analysis_results";
-            this.rtb_analysis_results.Size = new System.Drawing.Size(430, 386);
+            this.rtb_analysis_results.Size = new System.Drawing.Size(411, 386);
             this.rtb_analysis_results.TabIndex = 2;
             this.rtb_analysis_results.Text = "";
             this.rtb_analysis_results.WordWrap = false;
@@ -243,10 +245,19 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Top;
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(430, 21);
+            this.label2.Size = new System.Drawing.Size(411, 21);
             this.label2.TabIndex = 3;
             this.label2.Text = "Analysis Report";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.btn_open_analysis_report);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel4.Location = new System.Drawing.Point(0, 372);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(411, 35);
+            this.panel4.TabIndex = 4;
             // 
             // frmResponseSpectrumAnalysis
             // 
@@ -270,6 +281,7 @@
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -294,5 +306,6 @@
         private System.Windows.Forms.RichTextBox rtb_analysis_results;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_create_input_data;
+        private System.Windows.Forms.Panel panel4;
     }
 }

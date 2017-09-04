@@ -78,6 +78,128 @@ namespace AstraAccess.DynamicAnalysis
             Save_Data();
         }
 
+        void Analysis_Data_Modified(string file_name)
+        {
+            //string file_name = Bridge_Analysis.Input_File;
+            //= Bridge_Analysis.TotalAnalysis_Input_File;
+            if (!File.Exists(file_name)) return;
+
+            List<string> inp_file_cont = new List<string>(File.ReadAllLines(file_name));
+            string kStr = "";
+            int indx = -1;
+            bool flag = false;
+            MyList mlist = null;
+            int i = 0;
+
+            bool isMoving_load = false;
+            for (i = 0; i < inp_file_cont.Count; i++)
+            {
+                kStr = MyList.RemoveAllSpaces(inp_file_cont[i].ToUpper());
+                mlist = new MyList(kStr, ' ');
+
+                if (kStr.Contains("DEFINE MOVING"))
+                {
+
+                    if (indx == -1)
+                        indx = i;
+                    flag = true;
+                    isMoving_load = true;
+                }
+
+                if (mlist.StringList[0].StartsWith("LOAD") && flag == false)
+                {
+                    //if (indx == -1)
+                    //    indx = i;
+                    //flag = true;
+                }
+                if (kStr.Contains("ANALYSIS") || kStr.Contains("PRINT") || kStr.Contains("FINISH"))
+                {
+                    if (!isMoving_load)
+                    {
+                        if (indx == -1)
+                            indx = i;
+                    }
+                    flag = false;
+                }
+                if (flag)
+                {
+                    inp_file_cont.RemoveAt(i);
+                    i--;
+                }
+
+            }
+
+            List<string> load_lst = new List<string>();
+
+
+            if (ProjectType == eASTRADesignType.Eigen_Value_Analysis)
+            {
+                load_lst.Add(string.Format("PERFORM EIGEN VALUES ANALYSIS"));
+                load_lst.Add(string.Format("FREQUENCIES 3"));
+                //load_lst
+            }
+            else if (ProjectType == eASTRADesignType.Time_History_Analysis)
+            {
+                //load_lst.Add(string.Format(""));
+                load_lst.Add(string.Format("PERFORM RESPONSE SPECTRUM ANALYSIS"));
+                load_lst.Add(string.Format("FREQUENCIES 5"));
+                load_lst.Add(string.Format("CUTOFF FREQUENCY 10.5"));
+                load_lst.Add(string.Format("DIRECTION FACTORS X 1.0 Y 0.6667 Z 0.0 "));
+                load_lst.Add(string.Format("*SPECTRUM TYPE DISPLACEMENT"));
+                load_lst.Add(string.Format("SPECTRUM TYPE ACCELERATION"));
+                load_lst.Add(string.Format("SPECTRUM POINTS 16"));
+                load_lst.Add(string.Format("SCALE FACTOR 1.0"));
+                load_lst.Add(string.Format("*PERIOD DISPLACEMENT"));
+                load_lst.Add(string.Format("PERIOD ACCELERATION "));
+                load_lst.Add(string.Format("      0.00    46.328"));
+                load_lst.Add(string.Format("      0.02    46.328"));
+                load_lst.Add(string.Format("      0.10   149.023"));
+                load_lst.Add(string.Format("      0.18   207.706"));
+                load_lst.Add(string.Format("      0.20   211.566"));
+                load_lst.Add(string.Format("      0.22   212.725"));
+                load_lst.Add(string.Format("      0.26   210.408"));
+                load_lst.Add(string.Format("      0.30   203.845"));
+                load_lst.Add(string.Format("      0.56   134.352"));
+                load_lst.Add(string.Format("      0.70   110.416"));
+                load_lst.Add(string.Format("      0.90    86.094"));
+                load_lst.Add(string.Format("      1.20    62.929"));
+                load_lst.Add(string.Format("      1.40    52.892"));
+                load_lst.Add(string.Format("      1.80    39.765"));
+                load_lst.Add(string.Format("      2.00    35.518"));
+                load_lst.Add(string.Format("      3.00    21.620"));
+                //load_lst.Add(string.Format(""));
+            }
+            else if (ProjectType == eASTRADesignType.Response_Spectrum_Analysis)
+            {
+                
+                //load_lst.Add(string.Format(""));
+                load_lst.Add(string.Format("PERFORM TIME HISTORY ANALYSIS"));
+                load_lst.Add(string.Format("FREQUENCIES 8"));
+                load_lst.Add(string.Format("TIME STEPS 200"));
+                load_lst.Add(string.Format("PRINT INTERVAL 10"));
+                load_lst.Add(string.Format("STEP INTERVAL 0.1"));
+                load_lst.Add(string.Format("DAMPING FACTOR 0"));
+                load_lst.Add(string.Format("GROUND MOTION TZ"));
+                load_lst.Add(string.Format("X DIVISION 3"));
+                load_lst.Add(string.Format("SCALE FACTOR 1000.0"));
+                load_lst.Add(string.Format("TIME VALUES 0.0 10.0 30.0"));
+                load_lst.Add(string.Format("TIME FUNCTION 0.0 1.0 -1.0"));
+                //load_lst.Add(string.Format(""));
+            }
+
+            if (indx != -1)
+            {
+                inp_file_cont.InsertRange(indx, load_lst);
+
+
+                rtb_input_data.Lines = inp_file_cont.ToArray();
+                //inp_file_cont.InsertRange(indx, );
+                File.WriteAllLines(file_name, inp_file_cont.ToArray());
+                //MessageBox.Show(this, "Load data is added in file " + file_name, "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+
+        }
 
         private void Process_Analysis()
         {
@@ -200,7 +322,7 @@ namespace AstraAccess.DynamicAnalysis
         {
 
             Input_File = Path.Combine(user_path, txt_input_data.Text);
-
+            Analysis_Data_Modified(Input_File);
             File.WriteAllLines(Input_File, rtb_input_data.Lines);
 
             MessageBox.Show("Analysis Input Data File created as " + Input_File, "ASTRA", MessageBoxButtons.OK);
