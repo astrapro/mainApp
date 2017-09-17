@@ -14,6 +14,5 @@ namespace AstraFunctionOne
         {
             InitializeComponent();
         }
-	
     }
 }

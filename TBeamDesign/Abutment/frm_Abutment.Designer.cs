@@ -223,10 +223,10 @@
             this.uC_Abut_Cant1 = new BridgeAnalysisDesign.Abutment.UC_Abut_Cant();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label13 = new System.Windows.Forms.Label();
             this.btn_dwg_open_Cantilever = new System.Windows.Forms.Button();
             this.btn_dwg_open_Counterfort = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tab_counter_fort_ret_wall.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -2342,8 +2342,9 @@
             // 
             this.uC_Abut_Counterfort_LS1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uC_Abut_Counterfort_LS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_Abut_Counterfort_LS1.iapp = null;
             this.uC_Abut_Counterfort_LS1.Is_Individual = true;
-            this.uC_Abut_Counterfort_LS1.Length = 0D;
+            this.uC_Abut_Counterfort_LS1.Length = 51.3D;
             this.uC_Abut_Counterfort_LS1.Location = new System.Drawing.Point(3, 3);
             this.uC_Abut_Counterfort_LS1.Name = "uC_Abut_Counterfort_LS1";
             this.uC_Abut_Counterfort_LS1.Reaction_A = "4417.59 ";
@@ -2364,7 +2365,9 @@
             // 
             // uC_Abut_Cant1
             // 
+            this.uC_Abut_Cant1.Dead_Load_Reactions = "1635.12";
             this.uC_Abut_Cant1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Abut_Cant1.Length = "7.900";
             this.uC_Abut_Cant1.Location = new System.Drawing.Point(3, 3);
             this.uC_Abut_Cant1.Name = "uC_Abut_Cant1";
             this.uC_Abut_Cant1.Size = new System.Drawing.Size(940, 665);
@@ -2394,6 +2397,16 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Drawings";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(320, 84);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(308, 23);
+            this.label13.TabIndex = 8;
+            this.label13.Text = "Editable Construction Drawings";
             // 
             // btn_dwg_open_Cantilever
             // 
@@ -2431,16 +2444,6 @@
             this.panel2.Size = new System.Drawing.Size(222, 286);
             this.panel2.TabIndex = 9;
             this.panel2.Visible = false;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(320, 84);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(308, 23);
-            this.label13.TabIndex = 8;
-            this.label13.Text = "Editable Construction Drawings";
             // 
             // frm_Abutment
             // 

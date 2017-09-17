@@ -109,6 +109,12 @@
     <Compile Include="DrawingWorkspace\frmDrawingsEditor.Designer.cs">
       <DependentUpon>frmDrawingsEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="DynamicAnalysis\frmDynamicAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DynamicAnalysis\frmDynamicAnalysis.Designer.cs">
+      <DependentUpon>frmDynamicAnalysis.cs</DependentUpon>
+    </Compile>
     <Compile Include="DynamicAnalysis\frmEigenValueAnalysis.cs">
       <SubType>Form</SubType>
     </Compile>

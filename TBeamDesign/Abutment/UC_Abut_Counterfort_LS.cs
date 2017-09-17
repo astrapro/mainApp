@@ -103,6 +103,7 @@ namespace BridgeAnalysisDesign.Abutment
             ////list.Add(string.Format("Span Arrangement$$"));
             list.Add(string.Format("Span Arrangement$$"));
             //list.Add(string.Format("$$"));
+            //list.Add(string.Format("Span Arrangement (c/c of Exp. Joint)$51.250 $m."));
             list.Add(string.Format("Span Arrangement (c/c of Exp. Joint)$51.250 $m."));
             list.Add(string.Format("Dist. Betn c/l of exp jt to c/l of brg$0.625 $m."));
             list.Add(string.Format("Projection of deck beyond c/l of brg$0.600 $m."));

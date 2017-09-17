@@ -339,6 +339,14 @@ namespace LimitStateMethod.RCC_T_Girder
 
 
             uC_RCC_Abut1.Is_Individual = false;
+
+
+
+            uC_AbutmentOpenLS1.SetIApplocation(iApp);
+            uC_AbutmentPileLS1.SetIApplocation(iApp);
+
+
+            tc_abutment.TabPages.Remove(tab_AbutmentLSM);
             #endregion RCC Abutment
 
             #region RCC Pier
@@ -357,10 +365,20 @@ namespace LimitStateMethod.RCC_T_Girder
             uC_PierDesignLSM1.Show_Note = true;
             uC_PierDesignLSM1.Show_Title = true;
 
+            uC_PierOpenLS1.SetIApplocation(iApp);
+            uC_PierPileLS1.SetIApplocation(iApp);
+
+
 
 
             tc_Pier.TabPages.Remove(tab_PierWSM_Text);
             tc_Pier.TabPages.Remove(tab_PierWSM_Excel);
+
+            tc_Pier.TabPages.Remove(tab_PierLSM);
+
+
+
+
             #endregion RCC Pier
 
             #region Deckslab
@@ -22823,6 +22841,23 @@ namespace LimitStateMethod.RCC_T_Girder
                 else if (b.Name == btn_dwg_open_Pier.Name)
                 {
                     iApp.RunViewer(Path.Combine(Drawing_Folder, "RCC Pier Drawings"), "TBeam_Pier");
+                }
+
+                else if (b.Name == btn_dwg_open_abutOpen.Name)
+                {
+                    iApp.RunViewer(Path.Combine(Drawing_Folder, "RCC Abutment with Open Founation Drawings"), "ABUTMENT_OPEN_LSM");
+                }
+                else if (b.Name == btn_dwg_open_abutPile.Name)
+                {
+                    iApp.RunViewer(Path.Combine(Drawing_Folder, "RCC Abutment with Pile Founation Drawings"), "ABUTMENT_PILE_LSM");
+                }
+                else if (b.Name == btn_dwg_open_pierOpen.Name)
+                {
+                    iApp.RunViewer(Path.Combine(Drawing_Folder, "RCC Pier with Open Founation Drawings"), "PIER_OPEN_LSM");
+                }
+                else if (b.Name == btn_dwg_open_pierPile.Name)
+                {
+                    iApp.RunViewer(Path.Combine(Drawing_Folder, "RCC Pier with Pile Founation Drawings"), "PIER_PILELSM");
                 }
                 #endregion Sample Drawings
             }

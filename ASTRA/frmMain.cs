@@ -5472,21 +5472,21 @@ namespace AstraFunctionOne
             ToolStripMenuItem tsmi = sender as ToolStripMenuItem;
             if (tsmi == tsmi_eigenValue)
             {
-                //Form rm = AstraAccess.ViewerFunctions.Form_EigenValueAnalysis(this, eASTRADesignType.Eigen_Value_Analysis);
-                Form rm = AstraAccess.ViewerFunctions.Form_ResponseSpectrumAnalysis(this, eASTRADesignType.Eigen_Value_Analysis);
+                //Form rm = AstraAccess.ViewerFunctions.Form_ResponseSpectrumAnalysis(this, eASTRADesignType.Eigen_Value_Analysis);
+                Form rm = AstraAccess.ViewerFunctions.Form_DynamicAnalysis(this, eASTRADesignType.Eigen_Value_Analysis);
                 rm.Owner = this;
                 rm.Show();
             }
             else if (tsmi == tsmi_timeHistory)
             {
                 //Form rm = AstraAccess.ViewerFunctions.Form_TimeHistoryAnalysis(this, eASTRADesignType.Time_History_Analysis);
-                Form rm = AstraAccess.ViewerFunctions.Form_ResponseSpectrumAnalysis(this, eASTRADesignType.Time_History_Analysis);
+                Form rm = AstraAccess.ViewerFunctions.Form_DynamicAnalysis(this, eASTRADesignType.Time_History_Analysis);
                 rm.Owner = this;
                 rm.Show();
             }
             else if (tsmi == tsmi_responseSpectrum)
             {
-                Form rm = AstraAccess.ViewerFunctions.Form_ResponseSpectrumAnalysis(this, eASTRADesignType.Response_Spectrum_Analysis);
+                Form rm = AstraAccess.ViewerFunctions.Form_DynamicAnalysis(this, eASTRADesignType.Response_Spectrum_Analysis);
                 rm.Owner = this;
                 rm.Show();
             }

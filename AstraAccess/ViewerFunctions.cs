@@ -116,16 +116,25 @@ namespace AstraAccess
         public static Form Form_ResponseSpectrumAnalysis(IApplication app, eASTRADesignType projType)
         {
             AstraAccess.DynamicAnalysis.frmResponseSpectrumAnalysis frm = new AstraAccess.DynamicAnalysis.frmResponseSpectrumAnalysis(app, projType);
+            //AstraAccess.DynamicAnalysis.frmDynamicAnalysis frm = new AstraAccess.DynamicAnalysis.frmDynamicAnalysis(app, projType);
+            return frm;
+        }
+        public static Form Form_DynamicAnalysis(IApplication app, eASTRADesignType projType)
+        {
+            //AstraAccess.DynamicAnalysis.frmResponseSpectrumAnalysis frm = new AstraAccess.DynamicAnalysis.frmResponseSpectrumAnalysis(app, projType);
+            AstraAccess.DynamicAnalysis.frmDynamicAnalysis frm = new AstraAccess.DynamicAnalysis.frmDynamicAnalysis(app, projType);
             return frm;
         }
         public static Form Form_TimeHistoryAnalysis(IApplication app)
         {
             AstraAccess.DynamicAnalysis.frmTimeHostoryAnalysis frm = new AstraAccess.DynamicAnalysis.frmTimeHostoryAnalysis(app);
+            //AstraAccess.DynamicAnalysis.frmDynamicAnalysis frm = new AstraAccess.DynamicAnalysis.frmDynamicAnalysis(app, projType);
             return frm;
         }
         public static Form Form_EigenValueAnalysis(IApplication app)
         {
             AstraAccess.DynamicAnalysis.frmEigenValueAnalysis frm = new AstraAccess.DynamicAnalysis.frmEigenValueAnalysis(app);
+            //AstraAccess.DynamicAnalysis.frmDynamicAnalysis frm = new AstraAccess.DynamicAnalysis.frmDynamicAnalysis(app, projType);
             return frm;
         }
     }

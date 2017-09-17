@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using AstraInterface.Interface;
 using AstraInterface.DataStructure;
-//using
+
 namespace AstraFunctionOne.Progress
 {
     public partial class frm_Progress : Form, IProgress

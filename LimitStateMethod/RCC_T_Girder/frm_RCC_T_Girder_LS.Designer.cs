@@ -986,7 +986,13 @@
             this.label352 = new System.Windows.Forms.Label();
             this.txt_abut_H = new System.Windows.Forms.TextBox();
             this.tab_rcc_abutment = new System.Windows.Forms.TabPage();
+            this.tc_abutment = new System.Windows.Forms.TabControl();
+            this.tab_AbutmentLSM = new System.Windows.Forms.TabPage();
             this.uC_RCC_Abut1 = new BridgeAnalysisDesign.Abutment.UC_RCC_Abut();
+            this.tab_AbutmentOpenLSM = new System.Windows.Forms.TabPage();
+            this.uC_AbutmentOpenLS1 = new BridgeAnalysisDesign.Abutment.UC_AbutmentOpenLS();
+            this.tab_AbutmentPileLSM = new System.Windows.Forms.TabPage();
+            this.uC_AbutmentPileLS1 = new BridgeAnalysisDesign.Abutment.UC_AbutmentPileLS();
             this.tab_rcc_pier = new System.Windows.Forms.TabPage();
             this.tc_Pier = new System.Windows.Forms.TabControl();
             this.tab_PierLSM = new System.Windows.Forms.TabPage();
@@ -1248,6 +1254,10 @@
             this.pic_pier_interactive_diagram = new System.Windows.Forms.PictureBox();
             this.tab_PierWSM_Excel = new System.Windows.Forms.TabPage();
             this.uC_PierDesignWSM1 = new BridgeAnalysisDesign.Pier.UC_PierDesignWSM();
+            this.tab_PierOpenLSM = new System.Windows.Forms.TabPage();
+            this.uC_PierOpenLS1 = new BridgeAnalysisDesign.Pier.UC_PierOpenLS();
+            this.tab_PierPileLSM = new System.Windows.Forms.TabPage();
+            this.uC_PierPileLS1 = new BridgeAnalysisDesign.Pier.UC_PierPileLS();
             this.tab_bearing = new System.Windows.Forms.TabPage();
             this.uC_BRD1 = new LimitStateMethod.Bearing.UC_BRD();
             this.button1 = new System.Windows.Forms.Button();
@@ -1267,6 +1277,10 @@
             this.tab_Reports = new System.Windows.Forms.TabPage();
             this.uC_ViewReports1 = new BridgeAnalysisDesign.ViewReports.UC_ViewReports();
             this.label210 = new System.Windows.Forms.Label();
+            this.btn_dwg_open_abutOpen = new System.Windows.Forms.Button();
+            this.btn_dwg_open_pierOpen = new System.Windows.Forms.Button();
+            this.btn_dwg_open_abutPile = new System.Windows.Forms.Button();
+            this.btn_dwg_open_pierPile = new System.Windows.Forms.Button();
             this.tabCtrl.SuspendLayout();
             this.tab_dl.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -1397,6 +1411,10 @@
             this.groupBox25.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_cantilever)).BeginInit();
             this.tab_rcc_abutment.SuspendLayout();
+            this.tc_abutment.SuspendLayout();
+            this.tab_AbutmentLSM.SuspendLayout();
+            this.tab_AbutmentOpenLSM.SuspendLayout();
+            this.tab_AbutmentPileLSM.SuspendLayout();
             this.tab_rcc_pier.SuspendLayout();
             this.tc_Pier.SuspendLayout();
             this.tab_PierLSM.SuspendLayout();
@@ -1413,6 +1431,8 @@
             this.tab_des_Diagram.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_pier_interactive_diagram)).BeginInit();
             this.tab_PierWSM_Excel.SuspendLayout();
+            this.tab_PierOpenLSM.SuspendLayout();
+            this.tab_PierPileLSM.SuspendLayout();
             this.tab_bearing.SuspendLayout();
             this.tab_drawings.SuspendLayout();
             this.tc_drawings.SuspendLayout();
@@ -11350,7 +11370,7 @@
             // 
             // tab_rcc_abutment
             // 
-            this.tab_rcc_abutment.Controls.Add(this.uC_RCC_Abut1);
+            this.tab_rcc_abutment.Controls.Add(this.tc_abutment);
             this.tab_rcc_abutment.Location = new System.Drawing.Point(4, 22);
             this.tab_rcc_abutment.Name = "tab_rcc_abutment";
             this.tab_rcc_abutment.Padding = new System.Windows.Forms.Padding(3);
@@ -11359,23 +11379,88 @@
             this.tab_rcc_abutment.Text = "RCC Abutment";
             this.tab_rcc_abutment.UseVisualStyleBackColor = true;
             // 
+            // tc_abutment
+            // 
+            this.tc_abutment.Controls.Add(this.tab_AbutmentLSM);
+            this.tc_abutment.Controls.Add(this.tab_AbutmentOpenLSM);
+            this.tc_abutment.Controls.Add(this.tab_AbutmentPileLSM);
+            this.tc_abutment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tc_abutment.Location = new System.Drawing.Point(3, 3);
+            this.tc_abutment.Name = "tc_abutment";
+            this.tc_abutment.SelectedIndex = 0;
+            this.tc_abutment.Size = new System.Drawing.Size(948, 668);
+            this.tc_abutment.TabIndex = 1;
+            // 
+            // tab_AbutmentLSM
+            // 
+            this.tab_AbutmentLSM.Controls.Add(this.uC_RCC_Abut1);
+            this.tab_AbutmentLSM.Location = new System.Drawing.Point(4, 22);
+            this.tab_AbutmentLSM.Name = "tab_AbutmentLSM";
+            this.tab_AbutmentLSM.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_AbutmentLSM.Size = new System.Drawing.Size(940, 642);
+            this.tab_AbutmentLSM.TabIndex = 0;
+            this.tab_AbutmentLSM.Text = "Design of Abutment in LSM";
+            this.tab_AbutmentLSM.UseVisualStyleBackColor = true;
+            // 
             // uC_RCC_Abut1
             // 
             this.uC_RCC_Abut1.Deadload_Reaction = "";
             this.uC_RCC_Abut1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uC_RCC_Abut1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uC_RCC_Abut1.iApp = null;
-            this.uC_RCC_Abut1.Is_Individual = false;
+            this.uC_RCC_Abut1.Is_Individual = true;
             this.uC_RCC_Abut1.Is_Limit_State = true;
             this.uC_RCC_Abut1.IsBoxType = false;
             this.uC_RCC_Abut1.Length = 19.58D;
             this.uC_RCC_Abut1.Location = new System.Drawing.Point(3, 3);
             this.uC_RCC_Abut1.Name = "uC_RCC_Abut1";
             this.uC_RCC_Abut1.Overhang = 0.65D;
-            this.uC_RCC_Abut1.Size = new System.Drawing.Size(948, 668);
+            this.uC_RCC_Abut1.Size = new System.Drawing.Size(934, 636);
             this.uC_RCC_Abut1.TabIndex = 0;
-            this.uC_RCC_Abut1.Width = 0D;
+            this.uC_RCC_Abut1.Width = 551D;
             this.uC_RCC_Abut1.Abut_Counterfort_LS1_dead_load_CheckedChanged += new System.EventHandler(this.uC_RCC_Abut1_Abut_Counterfort_LS1_dead_load_CheckedChanged);
+            // 
+            // tab_AbutmentOpenLSM
+            // 
+            this.tab_AbutmentOpenLSM.Controls.Add(this.uC_AbutmentOpenLS1);
+            this.tab_AbutmentOpenLSM.Location = new System.Drawing.Point(4, 22);
+            this.tab_AbutmentOpenLSM.Name = "tab_AbutmentOpenLSM";
+            this.tab_AbutmentOpenLSM.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_AbutmentOpenLSM.Size = new System.Drawing.Size(940, 642);
+            this.tab_AbutmentOpenLSM.TabIndex = 1;
+            this.tab_AbutmentOpenLSM.Text = "Design of Abutment with Open Foundation in LSM";
+            this.tab_AbutmentOpenLSM.UseVisualStyleBackColor = true;
+            // 
+            // uC_AbutmentOpenLS1
+            // 
+            this.uC_AbutmentOpenLS1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_AbutmentOpenLS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_AbutmentOpenLS1.Location = new System.Drawing.Point(3, 3);
+            this.uC_AbutmentOpenLS1.Name = "uC_AbutmentOpenLS1";
+            this.uC_AbutmentOpenLS1.Show_Title = false;
+            this.uC_AbutmentOpenLS1.Size = new System.Drawing.Size(934, 636);
+            this.uC_AbutmentOpenLS1.TabIndex = 0;
+            // 
+            // tab_AbutmentPileLSM
+            // 
+            this.tab_AbutmentPileLSM.Controls.Add(this.uC_AbutmentPileLS1);
+            this.tab_AbutmentPileLSM.Location = new System.Drawing.Point(4, 22);
+            this.tab_AbutmentPileLSM.Name = "tab_AbutmentPileLSM";
+            this.tab_AbutmentPileLSM.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_AbutmentPileLSM.Size = new System.Drawing.Size(940, 642);
+            this.tab_AbutmentPileLSM.TabIndex = 2;
+            this.tab_AbutmentPileLSM.Text = "Design of Abutment with Pile Foundation in LSM";
+            this.tab_AbutmentPileLSM.UseVisualStyleBackColor = true;
+            // 
+            // uC_AbutmentPileLS1
+            // 
+            this.uC_AbutmentPileLS1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_AbutmentPileLS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_AbutmentPileLS1.Location = new System.Drawing.Point(3, 3);
+            this.uC_AbutmentPileLS1.Name = "uC_AbutmentPileLS1";
+            this.uC_AbutmentPileLS1.Show_Title = false;
+            this.uC_AbutmentPileLS1.Size = new System.Drawing.Size(934, 636);
+            this.uC_AbutmentPileLS1.TabIndex = 0;
             // 
             // tab_rcc_pier
             // 
@@ -11392,6 +11477,8 @@
             this.tc_Pier.Controls.Add(this.tab_PierLSM);
             this.tc_Pier.Controls.Add(this.tab_PierWSM_Text);
             this.tc_Pier.Controls.Add(this.tab_PierWSM_Excel);
+            this.tc_Pier.Controls.Add(this.tab_PierOpenLSM);
+            this.tc_Pier.Controls.Add(this.tab_PierPileLSM);
             this.tc_Pier.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tc_Pier.Location = new System.Drawing.Point(0, 0);
             this.tc_Pier.Name = "tc_Pier";
@@ -14226,6 +14313,47 @@
             this.uC_PierDesignWSM1.Size = new System.Drawing.Size(940, 642);
             this.uC_PierDesignWSM1.TabIndex = 0;
             // 
+            // tab_PierOpenLSM
+            // 
+            this.tab_PierOpenLSM.Controls.Add(this.uC_PierOpenLS1);
+            this.tab_PierOpenLSM.Location = new System.Drawing.Point(4, 22);
+            this.tab_PierOpenLSM.Name = "tab_PierOpenLSM";
+            this.tab_PierOpenLSM.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_PierOpenLSM.Size = new System.Drawing.Size(946, 648);
+            this.tab_PierOpenLSM.TabIndex = 3;
+            this.tab_PierOpenLSM.Text = "Pier Design with Open Foundation in LS";
+            this.tab_PierOpenLSM.UseVisualStyleBackColor = true;
+            // 
+            // uC_PierOpenLS1
+            // 
+            this.uC_PierOpenLS1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_PierOpenLS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_PierOpenLS1.Location = new System.Drawing.Point(3, 3);
+            this.uC_PierOpenLS1.Name = "uC_PierOpenLS1";
+            this.uC_PierOpenLS1.Show_Title = false;
+            this.uC_PierOpenLS1.Size = new System.Drawing.Size(940, 642);
+            this.uC_PierOpenLS1.TabIndex = 0;
+            // 
+            // tab_PierPileLSM
+            // 
+            this.tab_PierPileLSM.Controls.Add(this.uC_PierPileLS1);
+            this.tab_PierPileLSM.Location = new System.Drawing.Point(4, 22);
+            this.tab_PierPileLSM.Name = "tab_PierPileLSM";
+            this.tab_PierPileLSM.Size = new System.Drawing.Size(946, 648);
+            this.tab_PierPileLSM.TabIndex = 4;
+            this.tab_PierPileLSM.Text = "Pier Design with PIle Foundation in LS";
+            this.tab_PierPileLSM.UseVisualStyleBackColor = true;
+            // 
+            // uC_PierPileLS1
+            // 
+            this.uC_PierPileLS1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_PierPileLS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_PierPileLS1.Location = new System.Drawing.Point(0, 0);
+            this.uC_PierPileLS1.Name = "uC_PierPileLS1";
+            this.uC_PierPileLS1.Show_Title = false;
+            this.uC_PierPileLS1.Size = new System.Drawing.Size(946, 648);
+            this.uC_PierPileLS1.TabIndex = 0;
+            // 
             // tab_bearing
             // 
             this.tab_bearing.Controls.Add(this.uC_BRD1);
@@ -14285,6 +14413,10 @@
             // 
             // tab_drawingss
             // 
+            this.tab_drawingss.Controls.Add(this.btn_dwg_open_abutOpen);
+            this.tab_drawingss.Controls.Add(this.btn_dwg_open_pierPile);
+            this.tab_drawingss.Controls.Add(this.btn_dwg_open_pierOpen);
+            this.tab_drawingss.Controls.Add(this.btn_dwg_open_abutPile);
             this.tab_drawingss.Controls.Add(this.btn_dwg_open_GAD);
             this.tab_drawingss.Controls.Add(this.btn_dwg_open_LongGirder);
             this.tab_drawingss.Controls.Add(this.btn_dwg_box_abutment);
@@ -14378,32 +14510,35 @@
             // 
             // btn_dwg_open_Counterfort
             // 
-            this.btn_dwg_open_Counterfort.Location = new System.Drawing.Point(316, 230);
+            this.btn_dwg_open_Counterfort.Location = new System.Drawing.Point(27, 328);
             this.btn_dwg_open_Counterfort.Name = "btn_dwg_open_Counterfort";
-            this.btn_dwg_open_Counterfort.Size = new System.Drawing.Size(311, 36);
+            this.btn_dwg_open_Counterfort.Size = new System.Drawing.Size(223, 36);
             this.btn_dwg_open_Counterfort.TabIndex = 0;
             this.btn_dwg_open_Counterfort.Text = "Open Counterfort Abutment Drawings";
             this.btn_dwg_open_Counterfort.UseVisualStyleBackColor = true;
+            this.btn_dwg_open_Counterfort.Visible = false;
             this.btn_dwg_open_Counterfort.Click += new System.EventHandler(this.btn_dwg_open_Click);
             // 
             // btn_dwg_open_Pier
             // 
-            this.btn_dwg_open_Pier.Location = new System.Drawing.Point(316, 320);
+            this.btn_dwg_open_Pier.Location = new System.Drawing.Point(27, 415);
             this.btn_dwg_open_Pier.Name = "btn_dwg_open_Pier";
-            this.btn_dwg_open_Pier.Size = new System.Drawing.Size(311, 36);
+            this.btn_dwg_open_Pier.Size = new System.Drawing.Size(223, 36);
             this.btn_dwg_open_Pier.TabIndex = 0;
             this.btn_dwg_open_Pier.Text = "Open Pier Drawings";
             this.btn_dwg_open_Pier.UseVisualStyleBackColor = true;
+            this.btn_dwg_open_Pier.Visible = false;
             this.btn_dwg_open_Pier.Click += new System.EventHandler(this.btn_dwg_open_Click);
             // 
             // btn_dwg_open_Cantilever
             // 
-            this.btn_dwg_open_Cantilever.Location = new System.Drawing.Point(316, 275);
+            this.btn_dwg_open_Cantilever.Location = new System.Drawing.Point(27, 373);
             this.btn_dwg_open_Cantilever.Name = "btn_dwg_open_Cantilever";
-            this.btn_dwg_open_Cantilever.Size = new System.Drawing.Size(311, 36);
+            this.btn_dwg_open_Cantilever.Size = new System.Drawing.Size(223, 36);
             this.btn_dwg_open_Cantilever.TabIndex = 0;
             this.btn_dwg_open_Cantilever.Text = "Open Cantilever Abutment Drawings";
             this.btn_dwg_open_Cantilever.UseVisualStyleBackColor = true;
+            this.btn_dwg_open_Cantilever.Visible = false;
             this.btn_dwg_open_Cantilever.Click += new System.EventHandler(this.btn_dwg_open_Click);
             // 
             // tab_Reports
@@ -14438,6 +14573,46 @@
             this.label210.TabIndex = 12;
             this.label210.Text = "Drawings and Reports";
             this.label210.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btn_dwg_open_abutOpen
+            // 
+            this.btn_dwg_open_abutOpen.Location = new System.Drawing.Point(316, 244);
+            this.btn_dwg_open_abutOpen.Name = "btn_dwg_open_abutOpen";
+            this.btn_dwg_open_abutOpen.Size = new System.Drawing.Size(311, 36);
+            this.btn_dwg_open_abutOpen.TabIndex = 12;
+            this.btn_dwg_open_abutOpen.Text = "Open Abutment Drawings with Open Foundation";
+            this.btn_dwg_open_abutOpen.UseVisualStyleBackColor = true;
+            this.btn_dwg_open_abutOpen.Click += new System.EventHandler(this.btn_dwg_open_Click);
+            // 
+            // btn_dwg_open_pierOpen
+            // 
+            this.btn_dwg_open_pierOpen.Location = new System.Drawing.Point(316, 331);
+            this.btn_dwg_open_pierOpen.Name = "btn_dwg_open_pierOpen";
+            this.btn_dwg_open_pierOpen.Size = new System.Drawing.Size(311, 36);
+            this.btn_dwg_open_pierOpen.TabIndex = 13;
+            this.btn_dwg_open_pierOpen.Text = "Open Pier Drawings with Open Foundation";
+            this.btn_dwg_open_pierOpen.UseVisualStyleBackColor = true;
+            this.btn_dwg_open_pierOpen.Click += new System.EventHandler(this.btn_dwg_open_Click);
+            // 
+            // btn_dwg_open_abutPile
+            // 
+            this.btn_dwg_open_abutPile.Location = new System.Drawing.Point(316, 289);
+            this.btn_dwg_open_abutPile.Name = "btn_dwg_open_abutPile";
+            this.btn_dwg_open_abutPile.Size = new System.Drawing.Size(311, 36);
+            this.btn_dwg_open_abutPile.TabIndex = 14;
+            this.btn_dwg_open_abutPile.Text = "Open Abutment Drawings with Pile Foundation";
+            this.btn_dwg_open_abutPile.UseVisualStyleBackColor = true;
+            this.btn_dwg_open_abutPile.Click += new System.EventHandler(this.btn_dwg_open_Click);
+            // 
+            // btn_dwg_open_pierPile
+            // 
+            this.btn_dwg_open_pierPile.Location = new System.Drawing.Point(316, 373);
+            this.btn_dwg_open_pierPile.Name = "btn_dwg_open_pierPile";
+            this.btn_dwg_open_pierPile.Size = new System.Drawing.Size(311, 36);
+            this.btn_dwg_open_pierPile.TabIndex = 13;
+            this.btn_dwg_open_pierPile.Text = "Open Pier Drawings with Pile Foundation";
+            this.btn_dwg_open_pierPile.UseVisualStyleBackColor = true;
+            this.btn_dwg_open_pierPile.Click += new System.EventHandler(this.btn_dwg_open_Click);
             // 
             // frm_RCC_T_Girder_LS
             // 
@@ -14647,6 +14822,10 @@
             this.groupBox25.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_cantilever)).EndInit();
             this.tab_rcc_abutment.ResumeLayout(false);
+            this.tc_abutment.ResumeLayout(false);
+            this.tab_AbutmentLSM.ResumeLayout(false);
+            this.tab_AbutmentOpenLSM.ResumeLayout(false);
+            this.tab_AbutmentPileLSM.ResumeLayout(false);
             this.tab_rcc_pier.ResumeLayout(false);
             this.tc_Pier.ResumeLayout(false);
             this.tab_PierLSM.ResumeLayout(false);
@@ -14671,6 +14850,8 @@
             this.tab_des_Diagram.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pic_pier_interactive_diagram)).EndInit();
             this.tab_PierWSM_Excel.ResumeLayout(false);
+            this.tab_PierOpenLSM.ResumeLayout(false);
+            this.tab_PierPileLSM.ResumeLayout(false);
             this.tab_bearing.ResumeLayout(false);
             this.tab_drawings.ResumeLayout(false);
             this.tc_drawings.ResumeLayout(false);
@@ -15877,6 +16058,20 @@
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox txt_sidl_final_vert_reac;
         private System.Windows.Forms.Label label269;
+        private System.Windows.Forms.TabPage tab_PierOpenLSM;
+        private BridgeAnalysisDesign.Pier.UC_PierOpenLS uC_PierOpenLS1;
+        private System.Windows.Forms.TabPage tab_PierPileLSM;
+        private BridgeAnalysisDesign.Pier.UC_PierPileLS uC_PierPileLS1;
+        private System.Windows.Forms.TabControl tc_abutment;
+        private System.Windows.Forms.TabPage tab_AbutmentLSM;
+        private System.Windows.Forms.TabPage tab_AbutmentOpenLSM;
+        private BridgeAnalysisDesign.Abutment.UC_AbutmentOpenLS uC_AbutmentOpenLS1;
+        private System.Windows.Forms.TabPage tab_AbutmentPileLSM;
+        private BridgeAnalysisDesign.Abutment.UC_AbutmentPileLS uC_AbutmentPileLS1;
+        private System.Windows.Forms.Button btn_dwg_open_abutOpen;
+        private System.Windows.Forms.Button btn_dwg_open_pierPile;
+        private System.Windows.Forms.Button btn_dwg_open_pierOpen;
+        private System.Windows.Forms.Button btn_dwg_open_abutPile;
 
     }
 }

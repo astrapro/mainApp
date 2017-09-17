@@ -79,6 +79,18 @@
     <Compile Include="Abutment\UC_Abut.Designer.cs">
       <DependentUpon>UC_Abut.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abutment\UC_AbutmentOpenLS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Abutment\UC_AbutmentOpenLS.Designer.cs">
+      <DependentUpon>UC_AbutmentOpenLS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abutment\UC_AbutmentPileLS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Abutment\UC_AbutmentPileLS.Designer.cs">
+      <DependentUpon>UC_AbutmentPileLS.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abutment\UC_Abut_Cant.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -267,6 +279,18 @@
     </Compile>
     <Compile Include="Pier\UC_PierDesignWSM.Designer.cs">
       <DependentUpon>UC_PierDesignWSM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pier\UC_PierOpenLS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pier\UC_PierOpenLS.Designer.cs">
+      <DependentUpon>UC_PierOpenLS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pier\UC_PierPileLS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pier\UC_PierPileLS.Designer.cs">
+      <DependentUpon>UC_PierPileLS.cs</DependentUpon>
     </Compile>
     <Compile Include="PSC_BoxGirder\Continuous_Box_Girder_Analysis.cs" />
     <Compile Include="PSC_BoxGirder\Continuous_Box_Girder_Design.cs" />
@@ -483,6 +507,12 @@
     <EmbeddedResource Include="Abutment\UC_Abut.resx">
       <DependentUpon>UC_Abut.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Abutment\UC_AbutmentOpenLS.resx">
+      <DependentUpon>UC_AbutmentOpenLS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abutment\UC_AbutmentPileLS.resx">
+      <DependentUpon>UC_AbutmentPileLS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Abutment\UC_Abut_Cant.resx">
       <DependentUpon>UC_Abut_Cant.cs</DependentUpon>
     </EmbeddedResource>
@@ -587,6 +617,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pier\UC_PierDesignWSM.resx">
       <DependentUpon>UC_PierDesignWSM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pier\UC_PierOpenLS.resx">
+      <DependentUpon>UC_PierOpenLS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pier\UC_PierPileLS.resx">
+      <DependentUpon>UC_PierPileLS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PSC_BoxGirder\frm_BoxGirder_Msg.resx">
       <DependentUpon>frm_BoxGirder_Msg.cs</DependentUpon>
@@ -702,6 +738,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Drawing_Path.txt" />
+    <None Include="Resources\Pile Foundation3.jpg" />
+    <None Include="Resources\Pile Foundation2.jpg" />
+    <None Include="Resources\Pile Foundation1.jpg" />
+    <None Include="Resources\AbutmentPileFdn3.jpg" />
+    <None Include="Resources\AbutmentPileFdn2.jpg" />
+    <None Include="Resources\AbutmentPileFdn.jpg" />
     <None Include="Resources\BPUIMG3.jpg" />
     <None Include="Resources\BPUIMG2.jpg" />
     <None Include="Resources\BPUIMG1.jpg" />
