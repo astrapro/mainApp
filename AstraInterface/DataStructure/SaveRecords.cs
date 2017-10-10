@@ -12,21 +12,46 @@ namespace AstraInterface.DataStructure
     {
         public Hashtable Controls { get; set; }
         public static IApplication iApp;
+
+        string UC_NAME = "";
+
+        List<string> ControlNames = new List<string>();
         public Save_FormRecord()
             : base()
         {
             Controls = new Hashtable();
+            ControlNames = new List<string>();
         }
         public void Add(Control ctrl)
         {
             base.Add(ctrl);
-            Controls.Add(ctrl.Name, ctrl);
+
+            //Controls.Add(ctrl.Name, ctrl);
+            if (UC_NAME != "")
+            {
+                Controls.Add(UC_NAME + "." + ctrl.Name, ctrl);
+                ControlNames.Add(UC_NAME + "." + ctrl.Name);
+            }
+            else
+            {
+                Controls.Add(ctrl.Name, ctrl);
+                ControlNames.Add(ctrl.Name);
+            }
         }
         public void AddControls(Control ctrl)
         {
             //list_txt.Count
             //if(list_txt == null)
             //    list_txt = new List<Control>();
+
+            UserControl uc = ctrl as UserControl;
+
+            if(uc != null)
+            {
+                UC_NAME = uc.Name;
+                //ctrl.Parent
+            }
+
             for (int i = 0; i < ctrl.Controls.Count; i++)
             {
                 try
@@ -34,37 +59,50 @@ namespace AstraInterface.DataStructure
                     if (ctrl.Controls[i].Controls.Count > 0)
                         AddControls(ctrl.Controls[i]);
 
-                    if (ctrl.Controls[i].Name.StartsWith("txt") || ctrl.Controls[i].Name.StartsWith("cmb"))
-                    {
-                        Add(ctrl.Controls[i]);
-                    }
-                    //Chiranjit [2012 12 18]
-                    if (ctrl.Controls[i].Name.StartsWith("dgv"))
-                    {
-                        Add(ctrl.Controls[i]);
-                    }
+                    //if (ctrl.Controls[i].Name.StartsWith("txt") || ctrl.Controls[i].Name.StartsWith("cmb"))
+                    //{
+                    //    Add(ctrl.Controls[i]);
+                    //}
+                    ////Chiranjit [2012 12 18]
+                    //if (ctrl.Controls[i].Name.StartsWith("dgv"))
+                    //{
+                    //    Add(ctrl.Controls[i]);
+                    //}
+                    ////Chiranjit [2013 06 25]
+                    //if (ctrl.Controls[i].Name.StartsWith("rbtn") || ctrl.Controls[i].Name.StartsWith("chk"))
+                    //{
+                    //    Add(ctrl.Controls[i]);
+                    //}
+                    ////Chiranjit [2013 06 25]
+                    //if (ctrl.Controls[i].Name.StartsWith("rtb"))
+                    //{
+                    //    Add(ctrl.Controls[i]);
+                    //}
+                    ////Chiranjit [2013 06 25]
+                    //if (ctrl.Controls[i].Name.ToLower().StartsWith("uc"))
+                    //{
+                    //    Add(ctrl.Controls[i]);
+                    //}
+
                     //Chiranjit [2013 06 25]
-                    if (ctrl.Controls[i].Name.StartsWith("rbtn") || ctrl.Controls[i].Name.StartsWith("chk"))
+                    if ((ctrl.Controls[i] is TextBox ) ||
+                        (ctrl.Controls[i] is RichTextBox) ||
+                        (ctrl.Controls[i] is ComboBox) ||
+                        (ctrl.Controls[i] is CheckBox ) ||
+                        (ctrl.Controls[i] is DataGridView ) ||
+                        (ctrl.Controls[i] is RadioButton ) ||
+                        (ctrl.Controls[i] is UserControl ))
                     {
                         Add(ctrl.Controls[i]);
                     }
-                    //Chiranjit [2013 06 25]
-                    if (ctrl.Controls[i].Name.StartsWith("rtb"))
-                    {
-                        Add(ctrl.Controls[i]);
-                    }
-                    //Chiranjit [2013 06 25]
-                    if (ctrl.Controls[i].Name.ToLower().StartsWith("uc"))
-                    {
-                        Add(ctrl.Controls[i]);
-                    }
+
                 }
                 catch (Exception exx) { }
             }
         }
         public void AddControls(Form frm)
         {
-
+            UC_NAME = frm.Name;
             for (int i = 0; i < frm.Controls.Count; i++)
             {
                 AddControls(frm.Controls[i]);
@@ -76,6 +114,7 @@ namespace AstraInterface.DataStructure
             Form frm = obj as Form;
             if (frm != null)
             {
+                UC_NAME = frm.Name;
                 for (int i = 0; i < frm.Controls.Count; i++)
                 {
                     AddControls(frm.Controls[i]);
@@ -154,6 +193,7 @@ namespace AstraInterface.DataStructure
 
             rec.Clear();
             rec.AddControls(frm);
+            //rec.ControlNames
             if (IsRun_ProgressBar)
             {
                 if (iApp != null) 
@@ -199,7 +239,7 @@ namespace AstraInterface.DataStructure
                             {
                                 //if (c.Name.StartsWith("txt"))
                                 //    c.Text = mlist.StringList[1];
-                                if (c.Name.StartsWith("cmb"))
+                                if (c.Name.StartsWith("cmb") || c is ComboBox)
                                 {
                                     ComboBox cmb = (c as ComboBox);
 
@@ -220,7 +260,7 @@ namespace AstraInterface.DataStructure
                                     cmb.SelectedIndex = MyList.StringToInt(sel_text, -1);
 
                                 }
-                                else if (c.Name.StartsWith("dgv"))
+                                else if (c.Name.StartsWith("dgv") || c is DataGridView)
                                 {
 
                                     DataGridView dgv = c as DataGridView;
@@ -238,7 +278,7 @@ namespace AstraInterface.DataStructure
 
                                     }
                                 }
-                                else if (c.Name.StartsWith("txt"))
+                                else if (c.Name.StartsWith("txt") || c is TextBox)
                                 {
 
                                     TextBox txt = c as TextBox;
@@ -254,7 +294,7 @@ namespace AstraInterface.DataStructure
                                     txt.Lines = ln.ToArray();
 
                                 }
-                                else if (c.Name.StartsWith("rtb"))
+                                else if (c.Name.StartsWith("rtb") || c is RichTextBox)
                                 {
 
                                     RichTextBox txt = c as RichTextBox;
@@ -270,12 +310,12 @@ namespace AstraInterface.DataStructure
                                     txt.Lines = ln.ToArray();
 
                                 }
-                                else if (c.Name.StartsWith("rbtn"))
+                                else if (c.Name.StartsWith("rbtn") || c is RadioButton)
                                 {
                                     //ComboBox cmb = (c as ComboBox);
                                     (c as RadioButton).Checked = mlist.StringList[1] == "true";
                                 }
-                                else if (c.Name.StartsWith("chk"))
+                                else if (c.Name.StartsWith("chk") || c is CheckBox)
                                 {
                                     //ComboBox cmb = (c as ComboBox);
                                     (c as CheckBox).Checked = mlist.StringList[1] == "true";
@@ -372,9 +412,9 @@ namespace AstraInterface.DataStructure
                 }
             }
 
-
+            //rec
             //SaveRec.AddControls(tab_Post_Tension_Main_Girder);
-
+          
             string str = "";
             List<string> file_content = new List<string>();
             if (iApp != null)
@@ -384,15 +424,18 @@ namespace AstraInterface.DataStructure
             file_content.Add(string.Format("ASTRA INPUT DATA CREATED AT " + DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt")));
             file_content.Add(string.Format(""));
             file_content.Add(string.Format(""));
-            foreach (var item in rec)
+            //foreach (var item in rec)
+            foreach (var ctrl in rec.ControlNames)
             {
                 try
                 {
-                    if (item.Name.ToLower().StartsWith("dgv"))
+                    var item = rec.Controls[ctrl] as Control;
+
+                    if (item.Name.ToLower().StartsWith("dgv") || item is DataGridView)
                     {
                         DataGridView dgv = item as DataGridView;
 
-                        file_content.Add(string.Format("{0} = {1}", item.Name, ((dgv.AllowUserToAddRows) ? (dgv.RowCount - 1) : dgv.RowCount)));
+                        file_content.Add(string.Format("{0} = {1}", ctrl, ((dgv.AllowUserToAddRows) ? (dgv.RowCount - 1) : dgv.RowCount)));
                         for (int r = 0; r < dgv.RowCount; r++)
                         {
                             str = "";
@@ -414,10 +457,10 @@ namespace AstraInterface.DataStructure
                             catch (Exception exx) { }
                         }
                     }
-                    else if (item.Name.ToLower().StartsWith("txt"))
+                    else if (item.Name.ToLower().StartsWith("txt") || item is TextBox)
                     {
                         TextBox txt = item as TextBox;
-                        file_content.Add(string.Format("{0} = {1}", item.Name, txt.Lines.Length));
+                        file_content.Add(string.Format("{0} = {1}", ctrl, txt.Lines.Length));
                         file_content.AddRange(txt.Lines);
                         //for (int r = 0; r < txt.Lines.Length; r++)
                         //{
@@ -429,10 +472,10 @@ namespace AstraInterface.DataStructure
                         //}
                     }
 
-                    else if (item.Name.ToLower().StartsWith("cmb"))
+                    else if (item.Name.ToLower().StartsWith("cmb") || item is ComboBox)
                     {
                         ComboBox txt = item as ComboBox;
-                        file_content.Add(string.Format("{0} = {1}", item.Name, txt.Items.Count));
+                        file_content.Add(string.Format("{0} = {1}", ctrl, txt.Items.Count));
                         //file_content.AddRange(txt.Lines);
                         for (int r = 0; r < txt.Items.Count; r++)
                         {
@@ -447,10 +490,10 @@ namespace AstraInterface.DataStructure
                             catch (Exception exwa) { }
                         }
                     }
-                    else if (item.Name.ToLower().StartsWith("rtb"))
+                    else if (item.Name.ToLower().StartsWith("rtb") || item is RichTextBox)
                     {
                         RichTextBox txt = item as RichTextBox;
-                        file_content.Add(string.Format("{0} = {1}", item.Name, txt.Lines.Length));
+                        file_content.Add(string.Format("{0} = {1}", ctrl, txt.Lines.Length));
 
 
                         file_content.AddRange(txt.Lines);
@@ -464,18 +507,18 @@ namespace AstraInterface.DataStructure
                         //    catch (Exception exwa) { }
                         //}
                     }
-                    else if (item.Name.ToLower().StartsWith("chk"))
+                    else if (item.Name.ToLower().StartsWith("chk") || item is CheckBox)
                     {
                         CheckBox chk = item as CheckBox;
-                        file_content.Add(string.Format("{0} = {1}", item.Name, chk.Checked.ToString().ToLower()));
+                        file_content.Add(string.Format("{0} = {1}", ctrl, chk.Checked.ToString().ToLower()));
                     }
-                    else if (item.Name.ToLower().StartsWith("rbtn"))
+                    else if (item.Name.ToLower().StartsWith("rbtn") || item is RadioButton)
                     {
                         RadioButton rbtn = item as RadioButton;
-                        file_content.Add(string.Format("{0} = {1}", item.Name, rbtn.Checked.ToString().ToLower()));
+                        file_content.Add(string.Format("{0} = {1}", ctrl, rbtn.Checked.ToString().ToLower()));
                     }
                     else
-                        file_content.Add(string.Format("{0} = {1}", item.Name, item.Text));
+                        file_content.Add(string.Format("{0} = {1}", ctrl, item.Text));
                 }
                 catch (Exception exxxs) { }
             }

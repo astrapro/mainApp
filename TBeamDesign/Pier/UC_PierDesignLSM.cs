@@ -21,6 +21,7 @@ namespace BridgeAnalysisDesign.Pier
         }
         public List<TextBox> Get_GEN_Textboxes()
         {
+
             List<TextBox> list = new List<TextBox>();
             list.Add(txt_GEN_G3);
             list.Add(txt_GEN_I3);
@@ -341,6 +342,8 @@ namespace BridgeAnalysisDesign.Pier
         }
 
         public event EventHandler OnProcess;
+        public event EventHandler OnButtonClick;
+
         private void btn_process_Click(object sender, EventArgs e)
         {
 

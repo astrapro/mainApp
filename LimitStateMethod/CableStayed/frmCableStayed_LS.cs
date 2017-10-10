@@ -10096,12 +10096,27 @@ namespace LimitStateMethod.CableStayed
 
 
 
+        private bool Check_Project_Folder()
+        {
+
+            if (Path.GetFileName(user_path) != Project_Name)
+            {
+                MessageBox.Show(this, "New Project is not created. Please create New Project.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            return true;
+
+        }
+
 
         private void btn_Ana_create_data_Click(object sender, EventArgs e)
         {
 
             Button btn = sender as Button;
 
+
+
+            if (!Check_Project_Folder()) return;
             if (Path.GetFileName(user_path) != Project_Name)
             {
 
@@ -11156,7 +11171,7 @@ namespace LimitStateMethod.CableStayed
             Results.Add("");
             Results.Add("");
             Results.Add("\t\t**********************************************");
-            Results.Add("\t\t*            ASTRA Pro Release 20.0          *");
+            Results.Add("\t\t*            ASTRA Pro Release 21            *");
             Results.Add("\t\t*        TechSOFT Engineering Services       *");
             Results.Add("\t\t*                                            *");
             Results.Add("\t\t*        DESIGN OF STAY CABLE MEMBERS        *");

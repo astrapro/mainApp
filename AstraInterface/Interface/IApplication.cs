@@ -103,6 +103,9 @@ namespace AstraInterface.Interface
         void Show_LL_Dialog();
         void Excel_Open_Message();
 
+        //Close Excel Dialog
+        void Excel_Close_Message();
+
         //Chiranjit [2014 09 30] for British Standard
         Image Get_Image(string img_name);
 
@@ -149,6 +152,9 @@ namespace AstraInterface.Interface
          string Create_Project(string Title, string ProjectName, eASTRADesignType Project_Type);
          string Set_Project_Name(string Title);
          bool RunAnalysis(string fName);
+
+
+         void Open_Excel_Macro_Notes();
     }
 
 }

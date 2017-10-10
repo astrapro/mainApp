@@ -28,6 +28,7 @@ namespace LimitStateMethod.Extradossed
         public IApplication iApp = null;
 
        //public CABLE_STAYED_LS_Analysis CS_Analysis { get; set; }
+        public event EventHandler OnButtonClick;
 
        public CABLE_STAYED_Extradosed_LS_Analysis CS_Analysis { get; set; }
 
@@ -688,7 +689,7 @@ namespace LimitStateMethod.Extradossed
             Results.Add("");
             Results.Add("");
             Results.Add("\t\t**********************************************");
-            Results.Add("\t\t*            ASTRA Pro Release 20.0          *");
+            Results.Add("\t\t*            ASTRA Pro Release 21            *");
             Results.Add("\t\t*        TechSOFT Engineering Services       *");
             Results.Add("\t\t*                                            *");
             Results.Add("\t\t*        DESIGN OF STAY CABLE MEMBERS        *");

@@ -1760,8 +1760,22 @@ namespace BridgeAnalysisDesign.RCC_Culvert
                 System.Diagnostics.Process.Start(mcb_ana.User_Input_File);
         }
 
+
+        private bool Check_Project_Folder()
+        {
+
+            if (Path.GetFileName(user_path) != Project_Name)
+            {
+                MessageBox.Show(this, "New Project is not created. Please create New Project.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            return true;
+
+        }
+
         private void btn_mcb_save_data_Click(object sender, EventArgs e)
         {
+            if (!Check_Project_Folder()) return;
             DemoCheck();
 
             mcb_ana.Project_Name = txt_mc_box_project.Text;
@@ -2846,7 +2860,7 @@ namespace BridgeAnalysisDesign.RCC_Culvert
             {
                 #region TechSOFT Banner
                 sw.WriteLine("\t\t***********************************************");
-                sw.WriteLine("\t\t*            ASTRA Pro Release 20.0          *");
+                sw.WriteLine("\t\t*            ASTRA Pro Release 21            *");
                 sw.WriteLine("\t\t*        TechSOFT Engineering Services        *");
                 sw.WriteLine("\t\t*                                             *");
                 sw.WriteLine("\t\t*            DESIGN OF BOX CULVERT            *");
@@ -7791,7 +7805,7 @@ namespace BridgeAnalysisDesign.RCC_Culvert
             {
                 #region TechSOFT Banner
                 sw.WriteLine("\t\t***********************************************");
-                sw.WriteLine("\t\t*            ASTRA Pro Release 20.0            *");
+                sw.WriteLine("\t\t*            ASTRA Pro Release 21              *");
                 sw.WriteLine("\t\t*        TechSOFT Engineering Services        *");
                 sw.WriteLine("\t\t*                                             *");
                 sw.WriteLine("\t\t*            DESIGN OF PIPE CULVERT           *");
@@ -8116,7 +8130,7 @@ namespace BridgeAnalysisDesign.RCC_Culvert
             {
                 #region TechSOFT Banner
                 sw.WriteLine("\t\t***********************************************");
-                sw.WriteLine("\t\t*            ASTRA Pro Release 20.0            *");
+                sw.WriteLine("\t\t*            ASTRA Pro Release 21              *");
                 sw.WriteLine("\t\t*        TechSOFT Engineering Services        *");
                 sw.WriteLine("\t\t*                                             *");
                 sw.WriteLine("\t\t*            DESIGN OF PIPE CULVERT           *");
@@ -8522,7 +8536,7 @@ namespace BridgeAnalysisDesign.RCC_Culvert
                 //sw.WriteLine("----------------------------------------------------------------------------------------------");
                 //sw.WriteLine("----------------------------------------------------------------------------------------------");
                 sw.WriteLine("\t\t***********************************************");
-                sw.WriteLine("\t\t*            ASTRA Pro Release 20.0            *");
+                sw.WriteLine("\t\t*            ASTRA Pro Release 21              *");
                 sw.WriteLine("\t\t*        TechSOFT Engineering Services        *");
                 sw.WriteLine("\t\t*                                             *");
                 sw.WriteLine("\t\t*            DESIGN OF SLAB CULVERT           *");

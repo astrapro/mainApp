@@ -242,10 +242,24 @@ namespace BridgeAnalysisDesign.PSC_I_Girder
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
+
+        private bool Check_Project_Folder()
+        {
+
+            if (Path.GetFileName(user_path) != Project_Name)
+            {
+                MessageBox.Show(this, "New Project is not created. Please create New Project.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            return true;
+
+        }
+
         private void btn_Ana_create_data_Click(object sender, EventArgs e)
         {
             try
             {
+                if (!Check_Project_Folder()) return;
                 Analysis_Initialize_InputData();
 
 
@@ -8049,7 +8063,7 @@ namespace BridgeAnalysisDesign.PSC_I_Girder
             List<string> ll = new List<string>();
 
             ll.Add("\t\t***********************************************");
-            ll.Add("\t\t*            ASTRA Pro Release 20.0           *");
+            ll.Add("\t\t*            ASTRA Pro Release 21             *");
             ll.Add("\t\t*        TechSOFT Engineering Services        *");
             ll.Add("\t\t*                                             *");
             ll.Add("\t\t*          POST TENSIONED MAIN GIRDER         *");
@@ -11243,7 +11257,7 @@ namespace BridgeAnalysisDesign.PSC_I_Girder
                 sw.WriteLine();
                 sw.WriteLine();
                 sw.WriteLine("\t\t***********************************************");
-                sw.WriteLine("\t\t*            ASTRA Pro Release 20.0           *");
+                sw.WriteLine("\t\t*            ASTRA Pro Release 21             *");
                 sw.WriteLine("\t\t*        TechSOFT Engineering Services        *");
                 sw.WriteLine("\t\t*                                             *");
                 sw.WriteLine("\t\t*           DESIGN OF PRESTRESSED             *");
@@ -15995,7 +16009,7 @@ namespace BridgeAnalysisDesign.PSC_I_Girder
                 sw.WriteLine();
                 sw.WriteLine();
                 sw.WriteLine("\t\t************************************************");
-                sw.WriteLine("\t\t*            ASTRA Pro Release 20.0            *");
+                sw.WriteLine("\t\t*            ASTRA Pro Release 21              *");
                 sw.WriteLine("\t\t*         TechSOFT Engineering Services        *");
                 sw.WriteLine("\t\t*                                              *");
                 sw.WriteLine("\t\t*          DESIGN OF RCC DECK SLAB             *");

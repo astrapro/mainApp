@@ -937,7 +937,7 @@ namespace BridgeAnalysisDesign.SteelTruss
                 sw.WriteLine();
                 sw.WriteLine();
                 sw.WriteLine("\t\t**********************************************");
-                sw.WriteLine("\t\t*            ASTRA Pro Release 20.0          *");
+                sw.WriteLine("\t\t*            ASTRA Pro Release 21            *");
                 sw.WriteLine("\t\t*        TechSOFT Engineering Services       *");
                 sw.WriteLine("\t\t*                                            *");
                 sw.WriteLine("\t\t*        DESIGN OF STEEL TRUSS BRIDGE        *");
@@ -10850,6 +10850,30 @@ namespace BridgeAnalysisDesign.SteelTruss
             uC_PierDesignWSM1.iApp = iApp;
             uC_PierDesignWSM1.Show_Note = true;
             uC_PierDesignWSM1.Show_Title = true;
+
+
+
+
+
+            #region Chiranjit Added Abutment and Pier
+            uC_AbutmentOpenLS1.SetIApplication(iApp);
+            uC_AbutmentPileLS1.SetIApplication(iApp);
+
+            uC_PierOpenLS1.SetIApplication(iApp);
+            uC_PierPileLS1.SetIApplication(iApp);
+
+            #endregion Chiranjit Added Abutment and Pier
+
+
+
+
+
+
+
+
+
+
+
             //cmb_long_fck.SelectedIndex = 2;
             //cmb_long_fy.SelectedIndex = 1;
 
@@ -12181,9 +12205,21 @@ namespace BridgeAnalysisDesign.SteelTruss
 
 
 
+        private bool Check_Project_Folder()
+        {
+
+            if (Path.GetFileName(user_path) != Project_Name)
+            {
+                MessageBox.Show(this, "New Project is not created. Please create New Project.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            return true;
+
+        }
 
         private void btn_write_load_Click(object sender, EventArgs e)
         {
+            if (!Check_Project_Folder()) return;
             //Chiranjit [2012 07 13]
             Write_All_Data();
 
@@ -13917,6 +13953,33 @@ namespace BridgeAnalysisDesign.SteelTruss
             uC_PierDesignLSM1.Left_Span_Moment_Mz = txt_sidl_left_total_Mz.Text;
             uC_PierDesignLSM1.Right_Span_Moment_Mz = txt_sidl_right_total_Mz.Text;
 
+
+
+            #region New Design for Limit state Method
+
+            uC_AbutmentOpenLS1.DL_MTT = txt_max_Mz.Text;
+            uC_AbutmentOpenLS1.DL_MLL = txt_max_Mx.Text;
+            uC_AbutmentOpenLS1.SIDL_MTT = txt_sidl_final_Mz.Text;
+            uC_AbutmentOpenLS1.SIDL_MLL = txt_sidl_final_Mx.Text;
+
+
+            uC_AbutmentPileLS1.DL_MTT = txt_max_Mz.Text;
+            uC_AbutmentPileLS1.DL_MLL = txt_max_Mx.Text;
+            uC_AbutmentPileLS1.SIDL_MTT = txt_sidl_final_Mz.Text;
+            uC_AbutmentPileLS1.SIDL_MLL = txt_sidl_final_Mx.Text;
+
+
+
+            uC_PierOpenLS1.DL_Force = txt_max_vert_reac_kN.Text;
+            uC_PierOpenLS1.SIDL_Force = txt_sidl_final_vert_rec_kN.Text;
+
+
+            //uC_PierPileLS1.DL_Force = txt_max_vert_reac_kN.Text;
+            //uC_PierPileLS1.SIDL_Force = txt_sidl_final_vert_rec_kN.Text;
+
+            //uC_PierOpenLS1.DL
+
+            #endregion New Design for Limit state Method
 
         }
 

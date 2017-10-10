@@ -574,10 +574,25 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
             dgv_Ana_live_load.Rows.Add("TYPE 1 : IRCCLASSA", -18.8, 0, 9.75, 0.2);
         }
 
+
+        private bool Check_Project_Folder()
+        {
+
+            if (Path.GetFileName(user_path) != Project_Name)
+            {
+                MessageBox.Show(this, "New Project is not created. Please create New Project.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            return true;
+
+        }
+
         private void btn_Ana_create_data_Click(object sender, EventArgs e)
         {
             try
             {
+                if (!Check_Project_Folder()) return;
+
                 Show_Section_Result();
 
                 if (Path.GetFileName(user_path) != Project_Name)
@@ -9807,7 +9822,7 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
                 list.Add("");
 
                 list.Add(string.Format("\t\t***********************************************"));
-                list.Add(string.Format("\t\t*            ASTRA Pro Release 20.0           *"));
+                list.Add(string.Format("\t\t*            ASTRA Pro Release 21             *"));
                 list.Add(string.Format("\t\t*        TechSOFT Engineering Services        *"));
                 list.Add(string.Format("\t\t*                                             *"));
                 list.Add(string.Format("\t\t*    DESIGN OF PRE STRESSED CONCRETE (PSC)    *"));

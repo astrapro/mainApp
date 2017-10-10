@@ -895,6 +895,11 @@ namespace AstraInterface.DataStructure
             }
             return s;
         }
+        public static double StringToDouble(TextBox txt, double defaultValue)
+        {
+            return StringToDouble(txt.Text, defaultValue);
+        }
+
         public static double StringToDouble(string s, double defaultValue)
         {
             //if (s == null) return defaultValue;
@@ -1237,7 +1242,63 @@ namespace AstraInterface.DataStructure
                 Folder_Copy(item, dest_file);
             }
         }
+        public static List<TextBox> Get_TextBoxes(Control ctrl)
+        {
+            List<TextBox> list = new List<TextBox>();
+            for (int i = 0; i < ctrl.Controls.Count; i++)
+            {
+                var c = ctrl.Controls[i];
+                if (c.Controls.Count > 0)
+                {
+                    list.AddRange(Get_TextBoxes(c));
+                }
+                if (c is TextBox)
+                {
+                    list.Add(c as TextBox);
+                }
+            }
+            return list;
+        }
 
+        public static List<TextBox> Get_TextBoxes(Control ctrl, string startsWith)
+        {
+            List<TextBox> list = new List<TextBox>();
+            for (int i = 0; i < ctrl.Controls.Count; i++)
+            {
+                var c = ctrl.Controls[i];
+                if (c.Controls.Count > 0)
+                {
+                    list.AddRange(Get_TextBoxes(c));
+                }
+                if (c is TextBox)
+                {
+                    if (c.Name.StartsWith(startsWith))
+                        list.Add(c as TextBox);
+                }
+            }
+            return list;
+        }
+        public static List<TextBox> Get_TextBoxes(Form frm)
+        {
+            List<TextBox> list = new List<TextBox>();
+            for (int i = 0; i < frm.Controls.Count; i++)
+            {
+                var c = frm.Controls[i];
+                list.AddRange(Get_TextBoxes(c));
+            }
+            return list;
+        }
+
+        public static List<TextBox> Get_TextBoxes(Form frm, string startWith)
+        {
+            List<TextBox> list = new List<TextBox>();
+            for (int i = 0; i < frm.Controls.Count; i++)
+            {
+                var c = frm.Controls[i];
+                list.AddRange(Get_TextBoxes(c, startWith));
+            }
+            return list;
+        }
 
     }
 

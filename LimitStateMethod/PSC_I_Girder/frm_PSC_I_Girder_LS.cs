@@ -278,6 +278,18 @@ namespace LimitStateMethod.PSC_I_Girder
 
 
             uC_RCC_Abut1.Is_Individual = false;
+
+
+
+
+            uC_AbutmentOpenLS1.SetIApplication(iApp);
+            uC_AbutmentPileLS1.SetIApplication(iApp);
+
+
+            //tc_abutment.TabPages.Remove(tab_AbutmentLSM);
+            tc_abutment.TabPages.Remove(tab_AbutmentOpenLSM);
+
+
             #endregion RCC Abutment
 
 
@@ -295,6 +307,24 @@ namespace LimitStateMethod.PSC_I_Girder
             uC_PierDesignLSM1.iApp = iApp;
             uC_PierDesignLSM1.Show_Note = true;
             uC_PierDesignLSM1.Show_Title = true;
+
+
+
+
+
+            tc_pier.TabPages.Remove(tab_PierWSM_Text);
+            tc_pier.TabPages.Remove(tab_PierWSM_Excel);
+
+            tc_pier.TabPages.Remove(tab_PierPileLSM);
+
+            uC_PierOpenLS1.SetIApplication(iApp);
+            uC_PierPileLS1.SetIApplication(iApp);
+
+
+
+
+
+
 
             #endregion RCC Pier
 
@@ -735,6 +765,168 @@ namespace LimitStateMethod.PSC_I_Girder
             uC_PierDesignLSM1.Left_Span = L.ToString("f3");
             uC_PierDesignLSM1.Right_Span = L.ToString("f3");
 
+
+
+
+            #region Chiranjit [2017 09 18]
+            //Abutment Design with Open Foundation n Limit State Method
+            #region Abutment Open Foundation
+            uC_AbutmentOpenLS1.Span = txt_Ana_L.Text;
+            uC_AbutmentOpenLS1.Exp_Gap = txt_Ana_eg.Text;
+            uC_AbutmentOpenLS1.Carriageway_width = txt_Ana_B.Text;
+
+
+            uC_AbutmentOpenLS1.Railing = txt_Ana_Wr.Text;
+            uC_AbutmentOpenLS1.Crash_Barrier = txt_Ana_Wc.Text;
+            uC_AbutmentOpenLS1.Foot_path = txt_Ana_Wf.Text;
+
+
+            //uC_AbutmentOpenLS1.Bridge_Type = txt_Ana_B.Text;
+            uC_AbutmentOpenLS1.Girder_Depth = txt_Ana_DMG.Text;
+            uC_AbutmentOpenLS1.Slab_Thickness = txt_Ana_Ds.Text;
+            uC_AbutmentOpenLS1.Wearing_Coat_Thickness = txt_Ana_Dw.Text;
+
+            uC_AbutmentOpenLS1.Girder_Nos = txt_Ana_NMG.Text;
+            uC_AbutmentOpenLS1.Girder_Spacing = txt_Ana_SMG.Text;
+
+            uC_AbutmentOpenLS1.RCC_Density = (Y_c_dry / 10).ToString("f2");
+            //uC_AbutmentOpenLS1.Crash_Barrier_weight = txt_Ana_B.Text;
+            //uC_AbutmentOpenLS1.Wearing_coat_load = txt_Ana_B.Text;
+            //uC_AbutmentOpenLS1.Foot_Path_Live_Load = txt_Ana_B.Text;
+            //uC_AbutmentOpenLS1.Railing_weight = txt_Ana_B.Text;
+            #endregion Abutment Open Foundation
+
+            //Chiranjit [2017 09 18]
+            //Abutment Design with Pile Foundation n Limit State Method
+            #region Abutment Pile Foundation
+            uC_AbutmentPileLS1.Span = txt_Ana_L.Text;
+            uC_AbutmentPileLS1.Exp_Gap = txt_Ana_eg.Text;
+            uC_AbutmentPileLS1.Carriageway_width = txt_Ana_B.Text;
+
+
+            uC_AbutmentPileLS1.Railing = txt_Ana_Wr.Text;
+            uC_AbutmentPileLS1.Crash_Barrier = txt_Ana_Wc.Text;
+            uC_AbutmentPileLS1.Foot_path = txt_Ana_Wf.Text;
+
+
+            //uC_AbutmentOpenLS1.Bridge_Type = txt_Ana_B.Text;
+            uC_AbutmentPileLS1.Girder_Depth = txt_Ana_DMG.Text;
+            uC_AbutmentPileLS1.Slab_Thickness = txt_Ana_Ds.Text;
+            uC_AbutmentPileLS1.Wearing_Coat_Thickness = txt_Ana_Dw.Text;
+
+            uC_AbutmentPileLS1.Girder_Nos = txt_Ana_NMG.Text;
+            uC_AbutmentPileLS1.Girder_Spacing = txt_Ana_SMG.Text;
+
+            uC_AbutmentPileLS1.RCC_Density = (Y_c_dry / 10).ToString("f2");
+            //uC_AbutmentOpenLS1.Crash_Barrier_weight = txt_Ana_B.Text;
+            //uC_AbutmentOpenLS1.Wearing_coat_load = txt_Ana_B.Text;
+            //uC_AbutmentOpenLS1.Foot_Path_Live_Load = txt_Ana_B.Text;
+            //uC_AbutmentOpenLS1.Railing_weight = txt_Ana_B.Text;
+            #endregion Abutment Open Foundation
+
+
+            //Chiranjit [2017 09 18]
+            //Pier Design with Open Foundation n Limit State Method
+            #region Pier Open Foundation
+
+
+            double skw = MyList.Convert_Degree_To_Radian(MyList.StringToDouble(txt_Ana_ang.Text, 0.0));
+            double cos_len = Math.Cos(skw);
+
+            uC_PierOpenLS1.SkewAngle = txt_Ana_ang.Text;
+
+            //uC_PierPileLS1.CC_Exp_Joint_Left_Skew = txt_Ana_L.Text * Skew
+            uC_PierOpenLS1.CC_Exp_Joint_Left_Skew = (L / cos_len).ToString("f3");
+
+            //uC_PierPileLS1.CC_Exp_Joint_CL_Brg_Left_Skew = txt_Ana_og * Skew
+            uC_PierOpenLS1.CC_Exp_Joint_CL_Brg_Left_Skew = (og / cos_len).ToString("f3");
+
+            uC_PierOpenLS1.CC_Exp_Gap_Left = txt_Ana_eg.Text;
+
+            uC_PierOpenLS1.CarriageWidth_Left = txt_Ana_B.Text;
+
+            //uC_PierPileLS1.CrashBarierWidth_Nos = 2
+
+            uC_PierOpenLS1.CrashBarierWidth_Left = txt_Ana_Wc.Text;
+
+
+            //uC_PierPileLS1.FootPathWidth_Nos = 
+            uC_PierOpenLS1.FootPathWidth_Left = txt_Ana_Wf.Text;
+
+            uC_PierOpenLS1.RailingWidth_Left = txt_Ana_Wk.Text;
+
+            uC_PierOpenLS1.CrashBarierHeight_Left = txt_Ana_Hc.Text;
+
+            uC_PierOpenLS1.WearingCoatThickness_Left = txt_Ana_Dw.Text;
+
+            uC_PierOpenLS1.GirderDepth_Left = txt_Ana_DMG.Text;
+
+            uC_PierOpenLS1.SlabDepth_Left = txt_Ana_Ds.Text;
+
+            uC_PierOpenLS1.TopFlangeWidth_Left = txt_sec_in_mid_lg_wtf.Text;
+
+            uC_PierOpenLS1.CrossGirderWidth_Left = txt_sec_int_cg_w.Text;
+
+
+            uC_PierOpenLS1.Left_Equal_to_Right();
+
+            //uC_PierPileLS1.RCC_Density = (Y_c_dry / 10).ToString("f2");
+
+            #endregion Pier Open Foundation
+
+
+            //Chiranjit [2017 09 18]
+            //Pier Design with Open Foundation n Limit State Method
+            #region Pier Pile Foundation
+
+
+            //double skw = MyList.Convert_Degree_To_Radian(MyList.StringToDouble(txt_Ana_ang.Text, 0.0));
+            //double cos_len = Math.Cos(skw);
+
+            uC_PierPileLS1.SkewAngle = txt_Ana_ang.Text;
+
+            //uC_PierPileLS1.CC_Exp_Joint_Left_Skew = txt_Ana_L.Text * Skew
+            uC_PierPileLS1.CC_Exp_Joint_Left_Skew = (L / cos_len).ToString("f3");
+
+            //uC_PierPileLS1.CC_Exp_Joint_CL_Brg_Left_Skew = txt_Ana_og * Skew
+            uC_PierPileLS1.CC_Exp_Joint_CL_Brg_Left_Skew = (og / cos_len).ToString("f3");
+
+            uC_PierPileLS1.CC_Exp_Gap_Left = txt_Ana_eg.Text;
+
+            uC_PierPileLS1.CarriageWidth_Left = txt_Ana_B.Text;
+
+            //uC_PierPileLS1.CrashBarierWidth_Nos = 2
+
+            uC_PierPileLS1.CrashBarierWidth_Left = txt_Ana_Wc.Text;
+
+
+            //uC_PierPileLS1.FootPathWidth_Nos = 
+            uC_PierPileLS1.FootPathWidth_Left = txt_Ana_Wf.Text;
+
+            uC_PierPileLS1.RailingWidth_Left = txt_Ana_Wk.Text;
+
+            uC_PierPileLS1.CrashBarierHeight_Left = txt_Ana_Hc.Text;
+
+            uC_PierPileLS1.WearingCoatThickness_Left = txt_Ana_Dw.Text;
+
+            uC_PierPileLS1.GirderDepth_Left = txt_Ana_DMG.Text;
+
+            uC_PierPileLS1.SlabDepth_Left = txt_Ana_Ds.Text;
+
+            uC_PierPileLS1.TopFlangeWidth_Left = txt_sec_in_mid_lg_wtf.Text;
+
+            uC_PierPileLS1.CrossGirderWidth_Left = txt_sec_int_cg_w.Text;
+
+            uC_PierPileLS1.Left_Equal_to_Right();
+
+            //uC_PierPileLS1.RCC_Density = (Y_c_dry / 10).ToString("f2");
+
+            #endregion Pier Pile Foundation
+
+            #endregion Chiranjit [2017 09 18]
+
+
+
         }
 
         private void txt_sec_in_mid_lg_w_TextChanged(object sender, EventArgs e)
@@ -908,12 +1100,26 @@ namespace LimitStateMethod.PSC_I_Girder
             #endregion Show Results
         }
 
+
+        private bool Check_Project_Folder()
+        {
+
+            if (Path.GetFileName(user_path) != Project_Name)
+            {
+                MessageBox.Show(this, "New Project is not created. Please create New Project.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            return true;
+
+        }
+
         //Chiranjit [2012 09 21]
 
         private void btn_Ana_create_data_Click(object sender, EventArgs e)
         {
             try
             {
+                if (!Check_Project_Folder()) return;
                 Write_All_Data(true);
                 //MessageBox.Show("1");
                 Analysis_Initialize_InputData(true);
@@ -1250,6 +1456,8 @@ namespace LimitStateMethod.PSC_I_Girder
         {
             try
             {
+                if (!Check_Project_Folder()) return;
+
                 #region Process
                 int i = 0;
                 Write_All_Data(true);
@@ -7395,6 +7603,39 @@ namespace LimitStateMethod.PSC_I_Girder
             uC_PierDesignLSM1.Right_Span_Moment_Mz = txt_sidl_right_total_Mz.Text;
 
 
+
+            //uC_AbutmentPileLS1.
+
+
+
+            #region New Design for Limit state Method
+
+            uC_AbutmentOpenLS1.DL_MTT = txt_max_Mz.Text;
+            uC_AbutmentOpenLS1.DL_MLL = txt_max_Mx.Text;
+            uC_AbutmentOpenLS1.SIDL_MTT = txt_sidl_final_Mz.Text;
+            uC_AbutmentOpenLS1.SIDL_MLL = txt_sidl_final_Mx.Text;
+
+
+            uC_AbutmentPileLS1.DL_MTT = txt_max_Mz.Text;
+            uC_AbutmentPileLS1.DL_MLL = txt_max_Mx.Text;
+            uC_AbutmentPileLS1.SIDL_MTT = txt_sidl_final_Mz.Text;
+            uC_AbutmentPileLS1.SIDL_MLL = txt_sidl_final_Mx.Text;
+
+
+
+            uC_PierOpenLS1.DL_Force = txt_max_vert_reac_kN.Text;
+            uC_PierOpenLS1.SIDL_Force = txt_sidl_final_vert_rec_kN.Text;
+
+
+            //uC_PierPileLS1.DL_Force = txt_max_vert_reac_kN.Text;
+            //uC_PierPileLS1.SIDL_Force = txt_sidl_final_vert_rec_kN.Text;
+
+            //uC_PierOpenLS1.DL
+
+            #endregion New Design for Limit state Method
+
+
+
         }
 
         #endregion View Force
@@ -8415,6 +8656,8 @@ namespace LimitStateMethod.PSC_I_Girder
 
         private void btn_LS_Click(object sender, EventArgs e)
         {
+            if (!Check_Project_Folder()) return;
+
             Button btn = sender as Button;
 
             string excel_file_name = "";
@@ -9839,6 +10082,9 @@ namespace LimitStateMethod.PSC_I_Girder
 
         private void btn_dwg_open_Click(object sender, EventArgs e)
         {
+
+            if (!Check_Project_Folder()) return;
+
             Button btn = sender as Button;
 
             string draw = Drawing_Folder;

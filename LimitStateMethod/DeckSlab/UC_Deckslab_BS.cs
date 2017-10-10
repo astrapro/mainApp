@@ -1631,6 +1631,7 @@ namespace LimitStateMethod.DeckSlab
                 txt.BackColor = Color.White;
         }
 
+
         private void btn_process_Click(object sender, EventArgs e)
         {
             OnCreateData(sender, e);
@@ -1862,7 +1863,7 @@ namespace LimitStateMethod.DeckSlab
             #region TechSOFT Banner
             list.Add("\t\t***********************************************");
             list.Add("\t\t*                                             *");
-            list.Add("\t\t*            ASTRA Pro Release 20.0           *");
+            list.Add("\t\t*            ASTRA Pro Release 21             *");
             list.Add("\t\t*        TechSOFT Engineering Services        *");
             list.Add("\t\t*                                             *");
             list.Add("\t\t*  DESIGN OF DECK SLAB AS PER BS 5400 CODE    *");

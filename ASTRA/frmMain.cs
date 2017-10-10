@@ -586,6 +586,12 @@ namespace AstraFunctionOne
 
 
                 tsmi_PSC_I_GIRDER_Program.Visible = false;
+                tsmi_RCC_Culverts_LS.Visible = false;
+                tsmi_RCC_Culverts_WS.Visible = false;
+
+
+
+
                 //tsmi_workingFolder.Visible = false;
                 tsmi_openAnalysisExampleTXTDataFile.Visible = true;
 
@@ -653,7 +659,8 @@ namespace AstraFunctionOne
                                 //    DesignStandard = eDesignStandard.BritishStandard;
                                 toolStripSeparator9.Visible = !chHasp.IsActivate;
 
-                                if (!LockProgram.IsActivate && LockProgram.Check_ASTRA_Lock() || LockProgram.Check_ASTRA_Lock_18())
+                                //if (!LockProgram.IsActivate && LockProgram.Check_ASTRA_Lock() || LockProgram.Check_ASTRA_Lock_18())
+                                if (!LockProgram.IsActivate && LockProgram.Check_ASTRA_Lock() || LockProgram.Check_Previuos_Version())
                                 {
                                     //faum.ShowDialog();
 
@@ -2340,7 +2347,7 @@ namespace AstraFunctionOne
                     DesignStandard = fds.DesignStandard;
                     Write_Default_Moving_Loads();
                 }
-                //Is_select_Design_Standard = true;
+                Is_select_Design_Standard = true;
             }
             Set_Bridge_Design_Menu();
         }
@@ -2645,11 +2652,27 @@ namespace AstraFunctionOne
         private void tsmi_RCC_Culverts_Click(object sender, EventArgs e)
         {
 
+            ToolStripMenuItem tsmi = sender as ToolStripMenuItem;
+
+
+
             if (!Is_select_Design_Standard) SelectDesignStandard();
-            //ShowTimerScreen(eASTRAImage.TGirder_Bottom_Flange);
-            BridgeAnalysisDesign.RCC_Culvert.frm_RCC_Culvert frm = new BridgeAnalysisDesign.RCC_Culvert.frm_RCC_Culvert(this);
-            frm.Owner = this;
-            frm.Show();
+            
+            if(tsmi == tsmi_RCC_Culverts_LS)
+            {
+                //ShowTimerScreen(eASTRAImage.TGirder_Bottom_Flange);
+                LimitStateMethod.RccCulvert.frm_BoxCulvert_LS frm = new LimitStateMethod.RccCulvert.frm_BoxCulvert_LS(this);
+                frm.Owner = this;
+                frm.Show();
+            }
+            //else if (tsmi == tsmi_RCC_Culverts_WS)
+            else
+            {
+                //ShowTimerScreen(eASTRAImage.TGirder_Bottom_Flange);
+                BridgeAnalysisDesign.RCC_Culvert.frm_RCC_Culvert frm = new BridgeAnalysisDesign.RCC_Culvert.frm_RCC_Culvert(this);
+                frm.Owner = this;
+                frm.Show();
+            }
         }
 
         private void tsmi_Underpass_Click(object sender, EventArgs e)
@@ -2694,7 +2717,7 @@ namespace AstraFunctionOne
         private void tsmi_minor_Bridge_Click(object sender, EventArgs e)
         {
             ToolStripMenuItem tsmi = sender as ToolStripMenuItem;
-            if (tsmi.Name == tsmi_minor_Bridge_ls.Name)
+            if (tsmi.Name == tsmi_minor_Bridge.Name)
             {
 
                 if (!Is_select_Design_Standard) SelectDesignStandard();
@@ -4523,19 +4546,29 @@ namespace AstraFunctionOne
         }
 
 
-
-
+        Form fMsg ;
         public void Excel_Open_Message()
         {
+            try
+            {
+                fMsg = new frm_Excel_Message();
+                fMsg.Show();
+            }
+            catch (Exception exx) { }
+        }
+        //Chiranjit [2017 09 22]
+        public void Excel_Close_Message()
+        {
 
-            frm_Excel_Message f = new frm_Excel_Message();
-
-            f.Show();
+            try
+            {
+                fMsg.Close();
+            }
+            catch (Exception exx) { }
             //MessageBox.Show("The Design is done, the excel report file is created,\n\r" +
             //                "Click on the excel icon in the lower panel at the bottom\n\r" +
             //                "of the screen, to view the Design report.\n\r", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
 
         public void View_Input_File(string file_name)
         {
@@ -5492,7 +5525,125 @@ namespace AstraFunctionOne
             }
         }
 
+        //Chiranjit [2017 09 20] Added New Menu Item
+        private void tsmi_NewMenu_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem tsmi = sender as ToolStripMenuItem;
 
+            if (!Is_select_Design_Standard) SelectDesignStandard();
+
+            if (tsmi == tsmi_RCC_TGirder_LSM)
+            {
+                Show_T_Girder_Bridge_Limit_State();
+            }
+            else if (tsmi == tsmi_RCC_TGirder_WSM)
+            {
+                Show_T_Girder_Bridge_Working_Stress();
+            }
+            else if (tsmi == tsmi_Composite_LSM)
+            {
+                Show_Composite_Bridge_Limit_State();
+            }
+            else if (tsmi == tsmi_Composite_WSM)
+            {
+                Show_Composite_Bridge_Working_Stress();
+
+            }
+            else if (tsmi == tsmi_PSC_IGirder_LSM)
+            {
+                Show_PSC_IGirder_Bridge_Limit_State();
+
+            }
+            else if (tsmi == tsmi_PSC_IGirder_WSM)
+            {
+                Show_PSC_IGirder_Bridge_Working_Stress();
+            }
+            else if (tsmi == tsmi_minor_Bridge)
+            {
+                Show_Minor_Bridge_Limit_State();
+
+            }
+            else if (tsmi == tsmi_minor_Bridge_ws)
+            {
+                Show_Minor_Bridge_Working_Stress();
+            }
+        }
+
+        private void Show_Composite_Bridge_Limit_State()
+        {
+
+            ShowTimerScreen(eASTRAImage.Composite_Bridge);
+            //LimitStateMethod.Composite.frm_Composite_LS frm = new LimitStateMethod.Composite.frm_Composite_LS(this);
+            LimitStateMethod.Composite.frm_CompositeLSM frm = new LimitStateMethod.Composite.frm_CompositeLSM(this);
+            frm.Owner = this;
+            frm.Show();
+        }
+        private void Show_Composite_Bridge_Working_Stress()
+        {
+            ShowTimerScreen(eASTRAImage.Composite_Bridge);
+            BridgeAnalysisDesign.Composite.frm_Composite frm = new BridgeAnalysisDesign.Composite.frm_Composite(this);
+            frm.Owner = this;
+            frm.Show();
+        }
+
+        private void Show_PSC_IGirder_Bridge_Limit_State()
+        {
+
+            ShowTimerScreen(eASTRAImage.PSC_I_Girder_Long_Span);
+            frm_PSC_I_Girder_LS frm = new frm_PSC_I_Girder_LS(this);
+            frm.Owner = this;
+            frm.Show();
+        }
+        private void Show_PSC_IGirder_Bridge_Working_Stress()
+        {
+
+            //if (((ToolStripMenuItem)sender).Name == tsmi_PSC_I_Girder_LongSpan.Name)
+            //{
+            //    ShowTimerScreen(eASTRAImage.PSC_I_Girder_Long_Span);
+            //    BridgeAnalysisDesign.PSC_I_Girder.frm_PSC_I_Girder_LongSpan_WS frm = new BridgeAnalysisDesign.PSC_I_Girder.frm_PSC_I_Girder_LongSpan_WS(this);
+            //    frm.Owner = this;
+            //    frm.Show();
+            //}
+            //else
+            //{
+            ShowTimerScreen(eASTRAImage.PSC_I_Girder_Short_Span);
+            BridgeAnalysisDesign.PSC_I_Girder.frm_PSC_I_Girder_ShortSpan_WS frm = new BridgeAnalysisDesign.PSC_I_Girder.frm_PSC_I_Girder_ShortSpan_WS(this);
+            frm.Owner = this;
+            frm.Show();
+
+            //}
+        }
+
+        private void Show_Minor_Bridge_Limit_State()
+        {
+            //if (!Is_select_Design_Standard) SelectDesignStandard();
+            LimitStateMethod.Minor_Bridge.frm_MinorBridge_LS frm = new LimitStateMethod.Minor_Bridge.frm_MinorBridge_LS(this);
+            frm.Owner = this;
+            frm.Show();
+        }
+        private void Show_Minor_Bridge_Working_Stress()
+        {
+            //if (!Is_select_Design_Standard) SelectDesignStandard(); 
+            
+            BridgeAnalysisDesign.MinorBridge.frm_MinorBridge frm = new BridgeAnalysisDesign.MinorBridge.frm_MinorBridge(this);
+            frm.Owner = this;
+            frm.Show();
+        }
+
+
+
+        #region IApplication Members
+
+
+        public void Open_Excel_Macro_Notes()
+        {
+            string exl_help = Path.Combine(Application.StartupPath, @"ASTRAHelp\Excel Macro Enable Notes.pdf");
+       
+            if(File.Exists(exl_help))
+                System.Diagnostics.Process.Start(exl_help);
+        }
+
+        #endregion
     }
 
 }

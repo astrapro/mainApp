@@ -1041,12 +1041,16 @@
             this.label352 = new System.Windows.Forms.Label();
             this.txt_abut_H = new System.Windows.Forms.TextBox();
             this.tab_rcc_abutment = new System.Windows.Forms.TabPage();
+            this.tc_abutment = new System.Windows.Forms.TabControl();
+            this.tab_AbutmentLSM = new System.Windows.Forms.TabPage();
             this.uC_RCC_Abut1 = new BridgeAnalysisDesign.Abutment.UC_RCC_Abut();
+            this.tab_AbutmentOpenLSM = new System.Windows.Forms.TabPage();
+            this.uC_AbutmentOpenLS1 = new BridgeAnalysisDesign.Abutment.UC_AbutmentOpenLS();
+            this.tab_AbutmentPileLSM = new System.Windows.Forms.TabPage();
+            this.uC_AbutmentPileLS1 = new BridgeAnalysisDesign.Abutment.UC_AbutmentPileLS();
             this.tab_rcc_pier = new System.Windows.Forms.TabPage();
-            this.uC_PierDesignLSM1 = new BridgeAnalysisDesign.Pier.UC_PierDesignLSM();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.tc_pier = new System.Windows.Forms.TabControl();
+            this.tab_PierWSM_Text = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tab_des_form1 = new System.Windows.Forms.TabPage();
             this.label612 = new System.Windows.Forms.Label();
@@ -1300,8 +1304,14 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btn_RCC_Pier_Process = new System.Windows.Forms.Button();
             this.btn_RCC_Pier_Report = new System.Windows.Forms.Button();
-            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.tab_PierWSM_Excel = new System.Windows.Forms.TabPage();
             this.uC_PierDesignWSM1 = new BridgeAnalysisDesign.Pier.UC_PierDesignWSM();
+            this.tab_PierOpenLSM = new System.Windows.Forms.TabPage();
+            this.uC_PierOpenLS1 = new BridgeAnalysisDesign.Pier.UC_PierOpenLS();
+            this.tab_PierLSM = new System.Windows.Forms.TabPage();
+            this.uC_PierDesignLSM1 = new BridgeAnalysisDesign.Pier.UC_PierDesignLSM();
+            this.tab_PierPileLSM = new System.Windows.Forms.TabPage();
+            this.uC_PierPileLS1 = new BridgeAnalysisDesign.Pier.UC_PierPileLS();
             this.tab_bearing = new System.Windows.Forms.TabPage();
             this.uC_BRD1 = new LimitStateMethod.Bearing.UC_BRD();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -1452,9 +1462,13 @@
             this.groupBox25.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_cantilever)).BeginInit();
             this.tab_rcc_abutment.SuspendLayout();
+            this.tc_abutment.SuspendLayout();
+            this.tab_AbutmentLSM.SuspendLayout();
+            this.tab_AbutmentOpenLSM.SuspendLayout();
+            this.tab_AbutmentPileLSM.SuspendLayout();
             this.tab_rcc_pier.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage5.SuspendLayout();
+            this.tc_pier.SuspendLayout();
+            this.tab_PierWSM_Text.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tab_des_form1.SuspendLayout();
             this.groupBox42.SuspendLayout();
@@ -1466,7 +1480,10 @@
             this.tab_des_Diagram.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_pier_interactive_diagram)).BeginInit();
             this.groupBox4.SuspendLayout();
-            this.tabPage10.SuspendLayout();
+            this.tab_PierWSM_Excel.SuspendLayout();
+            this.tab_PierOpenLSM.SuspendLayout();
+            this.tab_PierLSM.SuspendLayout();
+            this.tab_PierPileLSM.SuspendLayout();
             this.tab_bearing.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.SuspendLayout();
@@ -11981,7 +11998,7 @@
             // 
             // tab_rcc_abutment
             // 
-            this.tab_rcc_abutment.Controls.Add(this.uC_RCC_Abut1);
+            this.tab_rcc_abutment.Controls.Add(this.tc_abutment);
             this.tab_rcc_abutment.Location = new System.Drawing.Point(4, 22);
             this.tab_rcc_abutment.Name = "tab_rcc_abutment";
             this.tab_rcc_abutment.Padding = new System.Windows.Forms.Padding(3);
@@ -11989,6 +12006,29 @@
             this.tab_rcc_abutment.TabIndex = 10;
             this.tab_rcc_abutment.Text = "RCC Abutment";
             this.tab_rcc_abutment.UseVisualStyleBackColor = true;
+            // 
+            // tc_abutment
+            // 
+            this.tc_abutment.Controls.Add(this.tab_AbutmentLSM);
+            this.tc_abutment.Controls.Add(this.tab_AbutmentOpenLSM);
+            this.tc_abutment.Controls.Add(this.tab_AbutmentPileLSM);
+            this.tc_abutment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tc_abutment.Location = new System.Drawing.Point(3, 3);
+            this.tc_abutment.Name = "tc_abutment";
+            this.tc_abutment.SelectedIndex = 0;
+            this.tc_abutment.Size = new System.Drawing.Size(948, 668);
+            this.tc_abutment.TabIndex = 2;
+            // 
+            // tab_AbutmentLSM
+            // 
+            this.tab_AbutmentLSM.Controls.Add(this.uC_RCC_Abut1);
+            this.tab_AbutmentLSM.Location = new System.Drawing.Point(4, 22);
+            this.tab_AbutmentLSM.Name = "tab_AbutmentLSM";
+            this.tab_AbutmentLSM.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_AbutmentLSM.Size = new System.Drawing.Size(940, 642);
+            this.tab_AbutmentLSM.TabIndex = 0;
+            this.tab_AbutmentLSM.Text = "Abutment Design with Open Foundation in LSM";
+            this.tab_AbutmentLSM.UseVisualStyleBackColor = true;
             // 
             // uC_RCC_Abut1
             // 
@@ -12003,15 +12043,119 @@
             this.uC_RCC_Abut1.Location = new System.Drawing.Point(3, 3);
             this.uC_RCC_Abut1.Name = "uC_RCC_Abut1";
             this.uC_RCC_Abut1.Overhang = 0.65D;
-            this.uC_RCC_Abut1.Size = new System.Drawing.Size(948, 668);
+            this.uC_RCC_Abut1.Size = new System.Drawing.Size(934, 636);
             this.uC_RCC_Abut1.TabIndex = 0;
-            this.uC_RCC_Abut1.Width = 12D;
+            this.uC_RCC_Abut1.Width = 350D;
             this.uC_RCC_Abut1.Abut_Counterfort_LS1_dead_load_CheckedChanged += new System.EventHandler(this.uC_RCC_Abut1_Abut_Counterfort_LS1_dead_load_CheckedChanged);
+            // 
+            // tab_AbutmentOpenLSM
+            // 
+            this.tab_AbutmentOpenLSM.Controls.Add(this.uC_AbutmentOpenLS1);
+            this.tab_AbutmentOpenLSM.Location = new System.Drawing.Point(4, 22);
+            this.tab_AbutmentOpenLSM.Name = "tab_AbutmentOpenLSM";
+            this.tab_AbutmentOpenLSM.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_AbutmentOpenLSM.Size = new System.Drawing.Size(940, 642);
+            this.tab_AbutmentOpenLSM.TabIndex = 1;
+            this.tab_AbutmentOpenLSM.Text = "Abutment Design with Open Foundation in LSM";
+            this.tab_AbutmentOpenLSM.UseVisualStyleBackColor = true;
+            // 
+            // uC_AbutmentOpenLS1
+            // 
+            this.uC_AbutmentOpenLS1.Bridge_Type = "RCC Girder with Deck Slab";
+            this.uC_AbutmentOpenLS1.Carriageway_width = "16";
+            this.uC_AbutmentOpenLS1.Concrete_Grade = "30";
+            this.uC_AbutmentOpenLS1.Concrete_Reinforcement = "500";
+            this.uC_AbutmentOpenLS1.Crash_Barrier = "0.5";
+            this.uC_AbutmentOpenLS1.Crash_Barrier_weight = "0.8";
+            this.uC_AbutmentOpenLS1.Cross_Camber = "0.025";
+            this.uC_AbutmentOpenLS1.DL_MLL = "0.0";
+            this.uC_AbutmentOpenLS1.DL_MTT = "-2095.50";
+            this.uC_AbutmentOpenLS1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_AbutmentOpenLS1.Exp_Gap = "40";
+            this.uC_AbutmentOpenLS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_AbutmentOpenLS1.Foot_path = "1.5";
+            this.uC_AbutmentOpenLS1.Foot_Path_Live_Load = "0.4";
+            this.uC_AbutmentOpenLS1.Girder_Depth = "2.0";
+            this.uC_AbutmentOpenLS1.Girder_Nos = "6";
+            this.uC_AbutmentOpenLS1.Girder_Spacing = "2.6";
+            this.uC_AbutmentOpenLS1.Is_Force_From_Analysis = true;
+            this.uC_AbutmentOpenLS1.LL_MLL_Max = "104.72";
+            this.uC_AbutmentOpenLS1.LL_MLL_Min = "26.23";
+            this.uC_AbutmentOpenLS1.LL_MTT_Max = "-660.72";
+            this.uC_AbutmentOpenLS1.LL_MTT_Min = "-165.473";
+            this.uC_AbutmentOpenLS1.Location = new System.Drawing.Point(3, 3);
+            this.uC_AbutmentOpenLS1.Name = "uC_AbutmentOpenLS1";
+            this.uC_AbutmentOpenLS1.Railing = "0.5";
+            this.uC_AbutmentOpenLS1.Railing_weight = "0.6";
+            this.uC_AbutmentOpenLS1.RCC_Density = "2.5";
+            this.uC_AbutmentOpenLS1.SIDL_MLL = "0.0";
+            this.uC_AbutmentOpenLS1.SIDL_MTT = "-458.64";
+            this.uC_AbutmentOpenLS1.Size = new System.Drawing.Size(934, 636);
+            this.uC_AbutmentOpenLS1.Slab_Thickness = "0.22";
+            this.uC_AbutmentOpenLS1.Span = "25.0";
+            this.uC_AbutmentOpenLS1.TabIndex = 0;
+            this.uC_AbutmentOpenLS1.Wearing_coat_load = "0.22";
+            this.uC_AbutmentOpenLS1.Wearing_Coat_Thickness = "65";
+            // 
+            // tab_AbutmentPileLSM
+            // 
+            this.tab_AbutmentPileLSM.Controls.Add(this.uC_AbutmentPileLS1);
+            this.tab_AbutmentPileLSM.Location = new System.Drawing.Point(4, 22);
+            this.tab_AbutmentPileLSM.Name = "tab_AbutmentPileLSM";
+            this.tab_AbutmentPileLSM.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_AbutmentPileLSM.Size = new System.Drawing.Size(940, 642);
+            this.tab_AbutmentPileLSM.TabIndex = 2;
+            this.tab_AbutmentPileLSM.Text = "Abutment Design with Pile Foundation in LSM";
+            this.tab_AbutmentPileLSM.UseVisualStyleBackColor = true;
+            // 
+            // uC_AbutmentPileLS1
+            // 
+            this.uC_AbutmentPileLS1.Abutment_Length = "13.0";
+            this.uC_AbutmentPileLS1.Bridge_Type = "PSC Girder with Deck Slab";
+            this.uC_AbutmentPileLS1.Carriageway_width = "13.0";
+            this.uC_AbutmentPileLS1.Concrete_Grade = "35";
+            this.uC_AbutmentPileLS1.Concrete_Reinforcement = "500";
+            this.uC_AbutmentPileLS1.Crash_Barrier = "0.5";
+            this.uC_AbutmentPileLS1.Crash_Barrier_weight = "0.8";
+            this.uC_AbutmentPileLS1.Cross_Camber = "0.025";
+            this.uC_AbutmentPileLS1.DL_MLL = "0.0";
+            this.uC_AbutmentPileLS1.DL_MTT = "-458.64";
+            this.uC_AbutmentPileLS1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_AbutmentPileLS1.Exp_Gap = "50";
+            this.uC_AbutmentPileLS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_AbutmentPileLS1.Foot_path = "0.0";
+            this.uC_AbutmentPileLS1.Foot_Path_Live_Load = "0.4";
+            this.uC_AbutmentPileLS1.Girder_Depth = "1.08";
+            this.uC_AbutmentPileLS1.Girder_Nos = "4";
+            this.uC_AbutmentPileLS1.Girder_Spacing = "3.25";
+            this.uC_AbutmentPileLS1.Is_Force_From_Analysis = true;
+            this.uC_AbutmentPileLS1.LL_MLL_Max = "104.72";
+            this.uC_AbutmentPileLS1.LL_MLL_Min = "26.23";
+            this.uC_AbutmentPileLS1.LL_MTT_Max = "-660.726";
+            this.uC_AbutmentPileLS1.LL_MTT_Min = "-165.47";
+            this.uC_AbutmentPileLS1.Location = new System.Drawing.Point(3, 3);
+            this.uC_AbutmentPileLS1.MAX_HOR_LOAD = "80.0";
+            this.uC_AbutmentPileLS1.Max_Horizontal_capacity = "80.0";
+            this.uC_AbutmentPileLS1.MAX_VERT_LOAD = "433.0";
+            this.uC_AbutmentPileLS1.Max_Vertical_capacity = "433.0";
+            this.uC_AbutmentPileLS1.Name = "uC_AbutmentPileLS1";
+            this.uC_AbutmentPileLS1.Pile_Dia = "1.2";
+            this.uC_AbutmentPileLS1.Railing = "0.0";
+            this.uC_AbutmentPileLS1.Railing_weight = "0.6";
+            this.uC_AbutmentPileLS1.RCC_Density = "2.5";
+            this.uC_AbutmentPileLS1.Show_Title = false;
+            this.uC_AbutmentPileLS1.SIDL_MLL = "0.0";
+            this.uC_AbutmentPileLS1.SIDL_MTT = "-315.30";
+            this.uC_AbutmentPileLS1.Size = new System.Drawing.Size(934, 636);
+            this.uC_AbutmentPileLS1.Slab_Thickness = "0.22";
+            this.uC_AbutmentPileLS1.Span = "12.687";
+            this.uC_AbutmentPileLS1.TabIndex = 0;
+            this.uC_AbutmentPileLS1.Wearing_coat_load = "0.22";
+            this.uC_AbutmentPileLS1.Wearing_Coat_Thickness = "65";
             // 
             // tab_rcc_pier
             // 
-            this.tab_rcc_pier.Controls.Add(this.uC_PierDesignLSM1);
-            this.tab_rcc_pier.Controls.Add(this.tabControl1);
+            this.tab_rcc_pier.Controls.Add(this.tc_pier);
             this.tab_rcc_pier.Location = new System.Drawing.Point(4, 22);
             this.tab_rcc_pier.Name = "tab_rcc_pier";
             this.tab_rcc_pier.Size = new System.Drawing.Size(954, 674);
@@ -12019,60 +12163,31 @@
             this.tab_rcc_pier.Text = "RCC Pier";
             this.tab_rcc_pier.UseVisualStyleBackColor = true;
             // 
-            // uC_PierDesignLSM1
+            // tc_pier
             // 
-            this.uC_PierDesignLSM1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_PierDesignLSM1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_PierDesignLSM1.Left_Span = "35";
-            this.uC_PierDesignLSM1.Left_Span_Moment_Mx = "0.0";
-            this.uC_PierDesignLSM1.Left_Span_Moment_Mz = "0.0";
-            this.uC_PierDesignLSM1.Left_Span_Vertical_Load = "42";
-            this.uC_PierDesignLSM1.Location = new System.Drawing.Point(0, 115);
-            this.uC_PierDesignLSM1.Name = "uC_PierDesignLSM1";
-            this.uC_PierDesignLSM1.Right_Span = "35";
-            this.uC_PierDesignLSM1.Right_Span_Moment_Mx = "0.0";
-            this.uC_PierDesignLSM1.Right_Span_Moment_Mz = "0.0";
-            this.uC_PierDesignLSM1.Right_Span_Vertical_Load = "42";
-            this.uC_PierDesignLSM1.Show_Note = false;
-            this.uC_PierDesignLSM1.Show_Title = false;
-            this.uC_PierDesignLSM1.Size = new System.Drawing.Size(954, 559);
-            this.uC_PierDesignLSM1.TabIndex = 0;
-            this.uC_PierDesignLSM1.Total_weight_of_superstructure = "460";
+            this.tc_pier.Controls.Add(this.tab_PierWSM_Text);
+            this.tc_pier.Controls.Add(this.tab_PierWSM_Excel);
+            this.tc_pier.Controls.Add(this.tab_PierOpenLSM);
+            this.tc_pier.Controls.Add(this.tab_PierLSM);
+            this.tc_pier.Controls.Add(this.tab_PierPileLSM);
+            this.tc_pier.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tc_pier.Location = new System.Drawing.Point(0, 0);
+            this.tc_pier.Name = "tc_pier";
+            this.tc_pier.SelectedIndex = 0;
+            this.tc_pier.Size = new System.Drawing.Size(954, 674);
+            this.tc_pier.TabIndex = 6;
             // 
-            // tabControl1
+            // tab_PierWSM_Text
             // 
-            this.tabControl1.Controls.Add(this.tabPage6);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Controls.Add(this.tabPage10);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(954, 115);
-            this.tabControl1.TabIndex = 6;
-            this.tabControl1.Visible = false;
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(946, 89);
-            this.tabPage6.TabIndex = 1;
-            this.tabPage6.Text = "Design of RCC Pier in Limit State Method";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Controls.Add(this.tabControl2);
-            this.tabPage5.Controls.Add(this.groupBox4);
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(184, 89);
-            this.tabPage5.TabIndex = 0;
-            this.tabPage5.Text = "Design of RCC Pier in Working Stress Method";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.tab_PierWSM_Text.Controls.Add(this.tabControl2);
+            this.tab_PierWSM_Text.Controls.Add(this.groupBox4);
+            this.tab_PierWSM_Text.Location = new System.Drawing.Point(4, 22);
+            this.tab_PierWSM_Text.Name = "tab_PierWSM_Text";
+            this.tab_PierWSM_Text.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_PierWSM_Text.Size = new System.Drawing.Size(946, 648);
+            this.tab_PierWSM_Text.TabIndex = 0;
+            this.tab_PierWSM_Text.Text = "Design of RCC Pier in Working Stress Method";
+            this.tab_PierWSM_Text.UseVisualStyleBackColor = true;
             // 
             // tabControl2
             // 
@@ -12083,7 +12198,7 @@
             this.tabControl2.Location = new System.Drawing.Point(3, 3);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(178, 44);
+            this.tabControl2.Size = new System.Drawing.Size(940, 603);
             this.tabControl2.TabIndex = 5;
             // 
             // tab_des_form1
@@ -12199,7 +12314,7 @@
             this.tab_des_form1.Location = new System.Drawing.Point(4, 22);
             this.tab_des_form1.Name = "tab_des_form1";
             this.tab_des_form1.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_des_form1.Size = new System.Drawing.Size(170, 18);
+            this.tab_des_form1.Size = new System.Drawing.Size(932, 577);
             this.tab_des_form1.TabIndex = 0;
             this.tab_des_form1.Text = "Design Input Data [Form1]";
             this.tab_des_form1.UseVisualStyleBackColor = true;
@@ -14109,7 +14224,7 @@
             this.tab_des_form2.Location = new System.Drawing.Point(4, 22);
             this.tab_des_form2.Name = "tab_des_form2";
             this.tab_des_form2.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_des_form2.Size = new System.Drawing.Size(932, 18);
+            this.tab_des_form2.Size = new System.Drawing.Size(170, 0);
             this.tab_des_form2.TabIndex = 2;
             this.tab_des_form2.Text = "Design Input Data [Form2]";
             this.tab_des_form2.UseVisualStyleBackColor = true;
@@ -14771,7 +14886,7 @@
             this.tab_des_Diagram.Location = new System.Drawing.Point(4, 22);
             this.tab_des_Diagram.Name = "tab_des_Diagram";
             this.tab_des_Diagram.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_des_Diagram.Size = new System.Drawing.Size(932, 18);
+            this.tab_des_Diagram.Size = new System.Drawing.Size(170, 0);
             this.tab_des_Diagram.TabIndex = 1;
             this.tab_des_Diagram.Text = "Diagram";
             this.tab_des_Diagram.UseVisualStyleBackColor = true;
@@ -14784,7 +14899,7 @@
             this.pic_pier_interactive_diagram.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pic_pier_interactive_diagram.Location = new System.Drawing.Point(3, 3);
             this.pic_pier_interactive_diagram.Name = "pic_pier_interactive_diagram";
-            this.pic_pier_interactive_diagram.Size = new System.Drawing.Size(926, 12);
+            this.pic_pier_interactive_diagram.Size = new System.Drawing.Size(164, 0);
             this.pic_pier_interactive_diagram.TabIndex = 0;
             this.pic_pier_interactive_diagram.TabStop = false;
             // 
@@ -14793,9 +14908,9 @@
             this.groupBox4.Controls.Add(this.btn_RCC_Pier_Process);
             this.groupBox4.Controls.Add(this.btn_RCC_Pier_Report);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox4.Location = new System.Drawing.Point(3, 47);
+            this.groupBox4.Location = new System.Drawing.Point(3, 606);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(178, 39);
+            this.groupBox4.Size = new System.Drawing.Size(940, 39);
             this.groupBox4.TabIndex = 5;
             this.groupBox4.TabStop = false;
             // 
@@ -14821,16 +14936,16 @@
             this.btn_RCC_Pier_Report.UseVisualStyleBackColor = true;
             this.btn_RCC_Pier_Report.Click += new System.EventHandler(this.btn_RccPier_Report_Click);
             // 
-            // tabPage10
+            // tab_PierWSM_Excel
             // 
-            this.tabPage10.Controls.Add(this.uC_PierDesignWSM1);
-            this.tabPage10.Location = new System.Drawing.Point(4, 22);
-            this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage10.Size = new System.Drawing.Size(184, 89);
-            this.tabPage10.TabIndex = 2;
-            this.tabPage10.Text = "Design of RCC Pier in Working Stress Method";
-            this.tabPage10.UseVisualStyleBackColor = true;
+            this.tab_PierWSM_Excel.Controls.Add(this.uC_PierDesignWSM1);
+            this.tab_PierWSM_Excel.Location = new System.Drawing.Point(4, 22);
+            this.tab_PierWSM_Excel.Name = "tab_PierWSM_Excel";
+            this.tab_PierWSM_Excel.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_PierWSM_Excel.Size = new System.Drawing.Size(184, 48);
+            this.tab_PierWSM_Excel.TabIndex = 2;
+            this.tab_PierWSM_Excel.Text = "Design of RCC Pier in Working Stress Method";
+            this.tab_PierWSM_Excel.UseVisualStyleBackColor = true;
             // 
             // uC_PierDesignWSM1
             // 
@@ -14842,8 +14957,150 @@
             this.uC_PierDesignWSM1.Right_Span_Force = "1300.0";
             this.uC_PierDesignWSM1.Show_Note = false;
             this.uC_PierDesignWSM1.Show_Title = false;
-            this.uC_PierDesignWSM1.Size = new System.Drawing.Size(178, 83);
+            this.uC_PierDesignWSM1.Size = new System.Drawing.Size(178, 42);
             this.uC_PierDesignWSM1.TabIndex = 0;
+            // 
+            // tab_PierOpenLSM
+            // 
+            this.tab_PierOpenLSM.Controls.Add(this.uC_PierOpenLS1);
+            this.tab_PierOpenLSM.Location = new System.Drawing.Point(4, 22);
+            this.tab_PierOpenLSM.Name = "tab_PierOpenLSM";
+            this.tab_PierOpenLSM.Size = new System.Drawing.Size(184, 48);
+            this.tab_PierOpenLSM.TabIndex = 3;
+            this.tab_PierOpenLSM.Text = "Pier Design with Open Foundation in LS";
+            this.tab_PierOpenLSM.UseVisualStyleBackColor = true;
+            // 
+            // uC_PierOpenLS1
+            // 
+            this.uC_PierOpenLS1.CarriageWidth_Left = "11.00";
+            this.uC_PierOpenLS1.CarriageWidth_Right = "11.00";
+            this.uC_PierOpenLS1.CC_Exp_Gap_Left = "40";
+            this.uC_PierOpenLS1.CC_Exp_Gap_Right = "40";
+            this.uC_PierOpenLS1.CC_Exp_Joint_CL_Brg_Left_Skew = "0.42";
+            this.uC_PierOpenLS1.CC_Exp_Joint_CL_Brg_Right_Skew = "0.42";
+            this.uC_PierOpenLS1.CC_Exp_Joint_Left_Skew = "25.84";
+            this.uC_PierOpenLS1.CC_Exp_Joint_Right_Skew = "25.84";
+            this.uC_PierOpenLS1.CrashBarierHeight_Left = "1.10";
+            this.uC_PierOpenLS1.CrashBarierHeight_Right = "1.10";
+            this.uC_PierOpenLS1.CrashBarierWidth_Left = "0.50";
+            this.uC_PierOpenLS1.CrashBarierWidth_Nos = "2";
+            this.uC_PierOpenLS1.CrashBarierWidth_Right = "0.50";
+            this.uC_PierOpenLS1.CrossGirderNos_Left = "2";
+            this.uC_PierOpenLS1.CrossGirderNos_Right = "2";
+            this.uC_PierOpenLS1.CrossGirderWidth_Left = "0.45";
+            this.uC_PierOpenLS1.CrossGirderWidth_Right = "0.45";
+            this.uC_PierOpenLS1.DL_Force = "3322.53";
+            this.uC_PierOpenLS1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_PierOpenLS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_PierOpenLS1.FootPathWidth_Left = "1.50";
+            this.uC_PierOpenLS1.FootPathWidth_Nos = "2";
+            this.uC_PierOpenLS1.FootPathWidth_Right = "1.50";
+            this.uC_PierOpenLS1.FPLL_Force = "310.08";
+            this.uC_PierOpenLS1.GirderDepth_Left = "2.00";
+            this.uC_PierOpenLS1.GirderDepth_Right = "2.00";
+            this.uC_PierOpenLS1.Is_Force_From_Analysis = true;
+            this.uC_PierOpenLS1.Location = new System.Drawing.Point(0, 0);
+            this.uC_PierOpenLS1.Name = "uC_PierOpenLS1";
+            this.uC_PierOpenLS1.RailingWidth_Left = "0.50";
+            this.uC_PierOpenLS1.RailingWidth_Nos = "2";
+            this.uC_PierOpenLS1.RailingWidth_Right = "0.50";
+            this.uC_PierOpenLS1.Show_Title = false;
+            this.uC_PierOpenLS1.SIDL_Force = "723.52";
+            this.uC_PierOpenLS1.Size = new System.Drawing.Size(184, 48);
+            this.uC_PierOpenLS1.SkewAngle = "0.0";
+            this.uC_PierOpenLS1.SlabDepth_Left = "0.22";
+            this.uC_PierOpenLS1.SlabDepth_Right = "0.22";
+            this.uC_PierOpenLS1.Surface_Force = "723.52";
+            this.uC_PierOpenLS1.TabIndex = 0;
+            this.uC_PierOpenLS1.TopFlangeWidth_Left = "1.00";
+            this.uC_PierOpenLS1.TopFlangeWidth_Right = "0.22";
+            this.uC_PierOpenLS1.WearingCoatThickness_Left = "65";
+            this.uC_PierOpenLS1.WearingCoatThickness_Right = "65";
+            // 
+            // tab_PierLSM
+            // 
+            this.tab_PierLSM.Controls.Add(this.uC_PierDesignLSM1);
+            this.tab_PierLSM.Location = new System.Drawing.Point(4, 22);
+            this.tab_PierLSM.Name = "tab_PierLSM";
+            this.tab_PierLSM.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_PierLSM.Size = new System.Drawing.Size(184, 48);
+            this.tab_PierLSM.TabIndex = 1;
+            this.tab_PierLSM.Text = "Pier Design with Pile Foundation in LS";
+            this.tab_PierLSM.UseVisualStyleBackColor = true;
+            // 
+            // uC_PierDesignLSM1
+            // 
+            this.uC_PierDesignLSM1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_PierDesignLSM1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_PierDesignLSM1.iApp = null;
+            this.uC_PierDesignLSM1.Left_Span = "35";
+            this.uC_PierDesignLSM1.Left_Span_Moment_Mx = "0.0";
+            this.uC_PierDesignLSM1.Left_Span_Moment_Mz = "0.0";
+            this.uC_PierDesignLSM1.Left_Span_Vertical_Load = "42";
+            this.uC_PierDesignLSM1.Location = new System.Drawing.Point(3, 3);
+            this.uC_PierDesignLSM1.Name = "uC_PierDesignLSM1";
+            this.uC_PierDesignLSM1.Right_Span = "35";
+            this.uC_PierDesignLSM1.Right_Span_Moment_Mx = "0.0";
+            this.uC_PierDesignLSM1.Right_Span_Moment_Mz = "0.0";
+            this.uC_PierDesignLSM1.Right_Span_Vertical_Load = "42";
+            this.uC_PierDesignLSM1.Show_Note = false;
+            this.uC_PierDesignLSM1.Show_Title = false;
+            this.uC_PierDesignLSM1.Size = new System.Drawing.Size(178, 42);
+            this.uC_PierDesignLSM1.TabIndex = 0;
+            this.uC_PierDesignLSM1.Total_weight_of_superstructure = "460";
+            // 
+            // tab_PierPileLSM
+            // 
+            this.tab_PierPileLSM.Controls.Add(this.uC_PierPileLS1);
+            this.tab_PierPileLSM.Location = new System.Drawing.Point(4, 22);
+            this.tab_PierPileLSM.Name = "tab_PierPileLSM";
+            this.tab_PierPileLSM.Size = new System.Drawing.Size(184, 48);
+            this.tab_PierPileLSM.TabIndex = 4;
+            this.tab_PierPileLSM.Text = "Pier Design with Pile Foundation in LS";
+            this.tab_PierPileLSM.UseVisualStyleBackColor = true;
+            // 
+            // uC_PierPileLS1
+            // 
+            this.uC_PierPileLS1.CarriageWidth_Left = "12.00";
+            this.uC_PierPileLS1.CarriageWidth_Right = "12.00";
+            this.uC_PierPileLS1.CC_Exp_Gap_Left = "50";
+            this.uC_PierPileLS1.CC_Exp_Gap_Right = "50";
+            this.uC_PierPileLS1.CC_Exp_Joint_CL_Brg_Left_Skew = "1.157";
+            this.uC_PierPileLS1.CC_Exp_Joint_CL_Brg_Right_Skew = "1.157";
+            this.uC_PierPileLS1.CC_Exp_Joint_Left_Skew = "15.00";
+            this.uC_PierPileLS1.CC_Exp_Joint_Right_Skew = "30.00";
+            this.uC_PierPileLS1.CrashBarierHeight_Left = "1.10";
+            this.uC_PierPileLS1.CrashBarierHeight_Right = "1.10";
+            this.uC_PierPileLS1.CrashBarierWidth_Left = "0.50";
+            this.uC_PierPileLS1.CrashBarierWidth_Nos = "2";
+            this.uC_PierPileLS1.CrashBarierWidth_Right = "0.50";
+            this.uC_PierPileLS1.CrossGirderNos_Left = "2";
+            this.uC_PierPileLS1.CrossGirderNos_Right = "2";
+            this.uC_PierPileLS1.CrossGirderWidth_Left = "0.50";
+            this.uC_PierPileLS1.CrossGirderWidth_Right = "0.50";
+            this.uC_PierPileLS1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_PierPileLS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_PierPileLS1.FootPathWidth_Left = "0.0";
+            this.uC_PierPileLS1.FootPathWidth_Nos = "0";
+            this.uC_PierPileLS1.FootPathWidth_Right = "0.0";
+            this.uC_PierPileLS1.GirderDepth_Left = "1.08";
+            this.uC_PierPileLS1.GirderDepth_Right = "2.00";
+            this.uC_PierPileLS1.Is_Force_From_Analysis = true;
+            this.uC_PierPileLS1.Location = new System.Drawing.Point(0, 0);
+            this.uC_PierPileLS1.Name = "uC_PierPileLS1";
+            this.uC_PierPileLS1.RailingWidth_Left = "0.0";
+            this.uC_PierPileLS1.RailingWidth_Nos = "0";
+            this.uC_PierPileLS1.RailingWidth_Right = "0.0";
+            this.uC_PierPileLS1.Show_Title = false;
+            this.uC_PierPileLS1.Size = new System.Drawing.Size(184, 48);
+            this.uC_PierPileLS1.SkewAngle = "18.0";
+            this.uC_PierPileLS1.SlabDepth_Left = "0.22";
+            this.uC_PierPileLS1.SlabDepth_Right = "0.22";
+            this.uC_PierPileLS1.TabIndex = 0;
+            this.uC_PierPileLS1.TopFlangeWidth_Left = "0.80";
+            this.uC_PierPileLS1.TopFlangeWidth_Right = "0.22";
+            this.uC_PierPileLS1.WearingCoatThickness_Left = "65";
+            this.uC_PierPileLS1.WearingCoatThickness_Right = "65";
             // 
             // tab_bearing
             // 
@@ -15198,9 +15455,13 @@
             this.groupBox25.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_cantilever)).EndInit();
             this.tab_rcc_abutment.ResumeLayout(false);
+            this.tc_abutment.ResumeLayout(false);
+            this.tab_AbutmentLSM.ResumeLayout(false);
+            this.tab_AbutmentOpenLSM.ResumeLayout(false);
+            this.tab_AbutmentPileLSM.ResumeLayout(false);
             this.tab_rcc_pier.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage5.ResumeLayout(false);
+            this.tc_pier.ResumeLayout(false);
+            this.tab_PierWSM_Text.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tab_des_form1.ResumeLayout(false);
             this.tab_des_form1.PerformLayout();
@@ -15219,7 +15480,10 @@
             this.tab_des_Diagram.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pic_pier_interactive_diagram)).EndInit();
             this.groupBox4.ResumeLayout(false);
-            this.tabPage10.ResumeLayout(false);
+            this.tab_PierWSM_Excel.ResumeLayout(false);
+            this.tab_PierOpenLSM.ResumeLayout(false);
+            this.tab_PierLSM.ResumeLayout(false);
+            this.tab_PierPileLSM.ResumeLayout(false);
             this.tab_bearing.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -16385,9 +16649,9 @@
         private System.Windows.Forms.TextBox txt_RCC_Pier_rdia;
         private System.Windows.Forms.Label label267;
         private System.Windows.Forms.Label label268;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.TabControl tc_pier;
+        private System.Windows.Forms.TabPage tab_PierWSM_Text;
+        private System.Windows.Forms.TabPage tab_PierLSM;
         private System.Windows.Forms.TabPage tabPage9;
         private System.Windows.Forms.Label label269;
         private System.Windows.Forms.GroupBox groupBox8;
@@ -16409,7 +16673,7 @@
         private System.Windows.Forms.TextBox txt_max_vert_reac;
         private System.Windows.Forms.Label label275;
         private BridgeAnalysisDesign.Pier.UC_PierDesignLSM uC_PierDesignLSM1;
-        private System.Windows.Forms.TabPage tabPage10;
+        private System.Windows.Forms.TabPage tab_PierWSM_Excel;
         private BridgeAnalysisDesign.Pier.UC_PierDesignWSM uC_PierDesignWSM1;
         private System.Windows.Forms.GroupBox groupBox55;
         private System.Windows.Forms.Label label276;
@@ -16464,6 +16728,16 @@
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.TextBox txt_sidl_final_vert_reac;
         private System.Windows.Forms.Label label290;
+        private System.Windows.Forms.TabControl tc_abutment;
+        private System.Windows.Forms.TabPage tab_AbutmentLSM;
+        private System.Windows.Forms.TabPage tab_AbutmentOpenLSM;
+        private BridgeAnalysisDesign.Abutment.UC_AbutmentOpenLS uC_AbutmentOpenLS1;
+        private System.Windows.Forms.TabPage tab_AbutmentPileLSM;
+        private BridgeAnalysisDesign.Abutment.UC_AbutmentPileLS uC_AbutmentPileLS1;
+        private System.Windows.Forms.TabPage tab_PierOpenLSM;
+        private System.Windows.Forms.TabPage tab_PierPileLSM;
+        private BridgeAnalysisDesign.Pier.UC_PierOpenLS uC_PierOpenLS1;
+        private BridgeAnalysisDesign.Pier.UC_PierPileLS uC_PierPileLS1;
 
     }
 }

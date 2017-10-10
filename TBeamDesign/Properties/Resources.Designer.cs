@@ -103,6 +103,16 @@ namespace BridgeAnalysisDesign.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AbutmentPileDiagram {
+            get {
+                object obj = ResourceManager.GetObject("AbutmentPileDiagram", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AbutmentPileFdn {
             get {
                 object obj = ResourceManager.GetObject("AbutmentPileFdn", resourceCulture);
@@ -536,6 +546,16 @@ namespace BridgeAnalysisDesign.Properties {
         internal static System.Drawing.Bitmap Pier_Image_for_RCC___PSC_Bridges1 {
             get {
                 object obj = ResourceManager.GetObject("Pier Image for RCC & PSC Bridges1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PierPile_Foundation {
+            get {
+                object obj = ResourceManager.GetObject("PierPile Foundation", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
